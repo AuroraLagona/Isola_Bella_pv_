@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Acquisto Biglietti</title>
+    <link rel="stylesheet" href="stile.css">
+</head>
+<body>
+    <header id="header-acquisto">
+        <div class="container">
+            <h1>Acquisto Biglietti</h1>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Sezione Selezione Biglietti (Biglietto già selezionato) -->
+        <div id="sezione-selezione">
+            <h2>Biglietto Selezionato</h2>
+            <div>
+                <h3>Biglietto Adulti - 5€</h3>
+                <p>Il biglietto selezionato è: <strong>Adulto</strong></p>
+                <p>Prezzo: 5€</p>
+            </div>
+            <button id="btn-next-1">Prosegui e paga</button>
+        </div>
+
+        <!-- Sezione Dati Utente -->
+        <section id="sezione-dati" class="sezione" style="display: none;">
+            <h2>I tuoi dati</h2>
+            <form id="form-dati">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="telefono">Telefono:</label>
+                <input type="text" id="telefono" name="telefono" required>
+
+                <button type="button" id="btn-next-2">Prosegui al Pagamento</button>
+            </form>
+        </section>
+
+        <!-- Sezione Pagamento -->
+        <section id="sezione-pagamento" class="sezione" style="display: none;">
+            <h2>Metodo di pagamento</h2>
+            <div class="pagamento">
+                <label>
+                    <input type="radio" name="pagamento" value="credit_card">
+                    Carta di Credito
+                </label>
+                <label>
+                    <input type="radio" name="pagamento" value="paypal">
+                    PayPal
+                </label>
+                <label>
+                    <input type="radio" name="pagamento" value="bonifico">
+                    Bonifico Bancario
+                </label>
+            </div>
+            <button type="button" id="btn-finalizza">Riepilogo e Completa l'Acquisto</button>
+        </section>
+
+        <!-- Sezione Riepilogo -->
+        <section id="riepilogo-dati" class="sezione" style="display: none;">
+            <h2>Riepilogo Acquisto</h2>
+            <div id="riepilogo-contenuto">
+                <p><strong>Biglietto:</strong> <span id="riepilogo-biglietto"></span></p>
+                <p><strong>Nome:</strong> <span id="riepilogo-nome"></span></p>
+                <p><strong>Email:</strong> <span id="riepilogo-email"></span></p>
+                <p><strong>Telefono:</strong> <span id="riepilogo-telefono"></span></p>
+                <p><strong>Metodo di Pagamento:</strong> <span id="riepilogo-pagamento"></span></p>
+            </div>
+            <button type="button" id="btn-completa">Completa Acquisto</button>
+        </section>
+    </div>
+
+    <footer id="footer-acquisto">
+        <div class="container">
+            <p>&copy; 2024 Isola Bella. Tutti i diritti riservati.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Variabili per i pulsanti
+            const btnNext1 = document.getElementById('btn-next-1');
+            const btnNext2 = document.getElementById('btn-next-2');
+            const btnFinalizza = document.getElementById('btn-finalizza');
+            const btnCompleta = document.getElementById('btn-completa');
+            
+            // Variabili per le sezioni
+            const sezioneSelezione = document.getElementById('sezione-selezione');
+            const sezioneDati = document.getElementById('sezione-dati');
+            const sezionePagamento = document.getElementById('sezione-pagamento');
+            const riepilogoDati = document.getElementById('riepilogo-dati');
+            
+            // Variabili per il riepilogo
+            const riepilogoBiglietto = document.getElementById('riepilogo-biglietto');
+            const riepilogoNome = document.getElementById('riepilogo-nome');
+            const riepilogoEmail = document.getElementById('riepilogo-email');
+            const riepilogoTelefono = document.getElementById('riepilogo-telefono');
+            const riepilogoPagamento = document.getElementById('riepilogo-pagamento');
+            
+            // Passo 1: Passare dalla selezione del biglietto alla sezione Dati
+            btnNext1.addEventListener('click', function() {
+                // Nascondi la sezione di selezione biglietto e mostra la sezione dei dati
+                sezioneSelezione.style.display = 'none';
+                sezioneDati.style.display = 'block';
+            });
+
+            // Passo 2: Passare dalla sezione Dati alla sezione Pagamento
+            btnNext2.addEventListener('click', function() {
+                const nome = document.getElementById('nome').value;
+                const email = document.getElementById('email').value;
+                const telefono = document.getElementById('telefono').value;
+
+                if (nome && email && telefono) {
+                    // Nascondi la sezione dei dati e mostra la sezione di pagamento
+                    sezioneDati.style.display = 'none';
+                    sezionePagamento.style.display = 'block';
+                } else {
+                    alert("Per favore, completa tutti i campi.");
+                }
+            });
+
+            // Passo 3: Passare dalla sezione Pagamento alla sezione Riepilogo
+            btnFinalizza.addEventListener('click', function() {
+                const pagamento = document.querySelector('input[name="pagamento"]:checked');
+                
+                if (pagamento) {
+                    // Nascondi la sezione di pagamento e mostra la sezione di riepilogo
+                    sezionePagamento.style.display = 'none';
+                    riepilogoDati.style.display = 'block';
+
+                    // Riempi il riepilogo con i dati
+                    riepilogoBiglietto.textContent = 'Adulto - 5€'; // Biglietto già selezionato
+                    riepilogoNome.textContent = document.getElementById('nome').value;
+                    riepilogoEmail.textContent = document.getElementById('email').value;
+                    riepilogoTelefono.textContent = document.getElementById('telefono').value;
+                    riepilogoPagamento.textContent = pagamento.nextSibling.nodeValue.trim();
+                } else {
+                    alert("Per favore, seleziona un metodo di pagamento.");
+                }
+            });
+
+            // Passo 4: Completare l'acquisto
+            btnCompleta.addEventListener('click', function() {
+                alert("Acquisto completato con successo!");
+                // A questo punto, si può aggiungere il codice per inviare i dati a un server o simili.
+                location.reload(); // Ricarica la pagina per reset del processo
+            });
+        });
+    </script>
+</body>
+</html>

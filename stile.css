@@ -1,0 +1,3560 @@
+body {
+  font-family:Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header {
+  background-color: #06789d;
+  color: white;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 10;
+}
+
+header .logo {
+  display: block;
+  flex: 1;
+}
+
+header .logo img {
+  height: 60px;
+}
+
+header .site-name {
+  font-size: 22px;
+  font-weight: bold;
+  color: white;
+  display: block;
+  flex: 1;
+  text-align: center;
+}
+
+header .site-name a {
+  color: white;
+  text-decoration: none;  /* Rimuove la sottolineatura */
+  font-size: 22px;
+  font-weight: bold;
+}
+
+header nav {
+  display: flex;
+  gap: 30px;
+  justify-content: flex-end;
+  flex: 2;
+}
+
+header nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  transition: color 0.3s;
+}
+
+header nav a:hover {
+  color: #FFD700;
+}
+
+header nav a.active {
+  color: #FFD700;
+  font-weight: bold;
+}
+
+/* Bottone hamburger per il menu mobile */
+header .menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+/* Media Query per schermi piccoli (max-width: 768px) */
+@media screen and (max-width: 768px) {
+  /* Posizioniamo l'header sopra la hero */
+  header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 20;  /* Assicuriamo che l'header sia sopra la hero */
+      padding: 10px 20px;
+      flex-direction: column;
+      align-items: center;
+  }
+
+  /* Logo su mobile */
+  header .logo img {
+      height: 50px;
+  }
+
+  /* Titolo del sito su mobile */
+  header .site-name a {
+      font-size: 18px;  /* Ridurre la dimensione del font per mobile */
+      text-align: center;
+  }
+
+  /* Menu di navigazione su mobile (nascosto per default) */
+  header nav {
+      display: none;
+      flex-direction: column;
+      gap: 10px;
+      width: 100%;
+      background-color: #003366;
+      position: absolute;
+      top: 70px;  /* Posizioniamo il menu sotto l'header */
+      left: 0;
+      right: 0;
+      padding: 10px 0;
+      text-align: center;
+  }
+
+  /* Link del menu su mobile */
+  header nav a {
+      font-size: 16px;
+      padding: 10px 0;
+      text-align: center;
+      color: #FFFFFF;
+  }
+
+  header nav a:hover {
+      color: #FFD700;
+  }
+
+  header nav a.active {
+      color: #FFD700;
+  }
+
+  /* Mostriamo il menu quando cliccato */
+  header nav.active {
+      display: flex;
+  }
+
+  /* Bottone hamburger visibile su mobile */
+  header .menu-toggle {
+      display: block;
+      color: #FFA500;
+  }
+}
+
+/* Hero specifico per Museo */
+.hero-museo {
+  background-color: #FFA500;
+  padding: 100px 20px;
+  color: white;
+  text-align: left;
+  position: relative;
+  z-index: 1;
+  margin-top: 80px; /* Distanziamo la hero dal header su mobile */
+}
+
+.hero-museo h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.hero-museo p {
+  font-size: 1.25rem;
+  margin-bottom: 0;
+}
+
+/* Sezione principale */
+.isola-bella-sezione {
+  padding: 50px 20px;
+}
+
+.isola-bella-image-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.isola-bella-image-item img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+/* Animazione AOS */
+[data-aos] {
+  transition: opacity 0.5s ease-in-out;
+}
+
+/* Lightbox */
+.isola-bella-lightbox {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+}
+
+.isola-bella-lightbox img {
+  max-width: 80%;
+  max-height: 80%;
+}
+
+
+.hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 90vh; /* Altezza della sezione Hero */
+  overflow: hidden;
+  background-size: cover; /* L'immagine copre tutta la sezione senza distorcersi */
+  background-position: center center; /* Centra l'immagine */
+  background-repeat: no-repeat; /* Non ripete l'immagine */
+}
+
+/* Contenitore dell'immagine Hero (opzionale, se desideri continuare ad usare un tag img) */
+.hero-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1; /* Mette l'immagine dietro il contenuto */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Contenitore del contenuto della Hero */
+.hero-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 0 20px;
+  position: relative;
+  z-index: 2; /* Sovrascrive l'immagine */
+  text-align: center; /* Allinea il testo al centro */
+}
+
+/* Testo dell'intestazione */
+.hero-text {
+  max-width: 510px; /* Ridotto da 750px */
+  background: #3e6f5c; /* Sovrapposizione scura per il testo */
+  padding: 30px; /* Ridotto da 40px */
+  border-radius: 15px;
+  text-align: left; /* Cambiato da center a left */
+  color: #06789d; /* Correzione del colore (mancava il simbolo #) */
+  position: absolute;
+  left: 10%; /* Sposta il contenuto più a sinistra */
+  top: 40%; /* Sposta il contenuto più in basso */
+  transform: translateY(-40%); /* Compensa l'effetto di "top" per centrare meglio il contenuto */
+  opacity: 0; /* Inizia invisibile */
+  animation: fadeInSlide 1.5s ease-out 0.5s forwards; /* Aggiungi un delay per un effetto più naturale */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); /* Aggiungi ombra al contenuto per migliorare la visibilità */
+}
+
+/* Animazione di fadeIn con slide verso l'alto */
+@keyframes fadeInSlide {
+  0% {
+    opacity: 0;
+    transform: translateY(20px); /* Iniziamo più in basso */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); /* Arriva alla posizione finale */
+  }
+}
+
+/* Titolo della Hero */
+.hero h1 {
+  font-size: 56px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+  color: #FFD700;
+}
+
+/* Descrizione sotto il titolo */
+.hero p {
+  font-size: 20px;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  color: white;
+}
+
+/* Bottone per esplorare */
+.btn-learn-more {
+  background-color: #FFD700; /* Colore dorato */
+  color: #2E8B57;
+  text-decoration: none;
+  padding: 15px 30px;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 50px;
+  transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+  display: inline-block;
+  margin-top: 20px;
+}
+
+.btn-learn-more:hover {
+  background-color: #fff;
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsività per schermi tra 1024px e 1440px */
+@media screen and (max-width: 1024px) {
+  .hero h1 {
+    font-size: 48px;
+  }
+
+  .hero p {
+    font-size: 18px;
+  }
+
+  .hero-text {
+    max-width: 70%; /* Ridotto da 85% per una dimensione più contenuta */
+    padding: 20px; /* Ridotto da 30px */
+  }
+}
+
+/* Responsività per schermi tra 768px e 1024px (Tablet) */
+@media screen and (max-width: 768px) {
+  .hero {
+    height: 70vh; /* Altezza più bassa su tablet */
+  }
+
+  .hero h1 {
+    font-size: 36px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  .hero-text {
+    padding: 20px;
+    max-width: 90%; /* Ridotto da 100% per evitare che il testo tocchi i bordi */
+    left: 10%;
+    top: 50%; /* Cambia leggermente il posizionamento su tablet */
+    transform: translateY(-50%);
+  }
+
+  .btn-learn-more {
+    padding: 12px 25px;
+    font-size: 16px;
+  }
+}
+
+/* Responsività per schermi tra 480px e 768px (Mobile) */
+@media screen and (max-width: 768px) {
+  .hero {
+    height: 60vh;
+    background-size: cover; /* Rende l'immagine di sfondo adattabile su mobile */
+  }
+
+  .hero-text {
+    padding: 15px; /* Ridotto da 20px */
+    max-width: 95%; /* Ridotto da 100% per evitare che il testo tocchi i bordi */
+    left: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .hero h1 {
+    font-size: 28px;
+  }
+
+  .hero p {
+    font-size: 14px;
+  }
+
+  .btn-learn-more {
+    padding: 12px 20px;
+    font-size: 14px;
+  }
+}
+
+/* Schermi molto piccoli (Smartphone in verticale) */
+@media screen and (max-width: 480px) {
+  .hero {
+    height: 50vh; /* Ridurre l'altezza su schermi molto piccoli */
+    background-size: cover; /* Rende l'immagine di sfondo adattabile su mobile */
+  }
+
+  .hero h1 {
+    font-size: 24px;
+  }
+
+  .hero p {
+    font-size: 14px;
+  }
+
+  .hero-text {
+    padding: 10px; /* Ridotto da 15px */
+    left: 5%;
+    top: 45%;
+    transform: translateY(-50%);
+  }
+
+  .btn-learn-more {
+    padding: 10px 20px;
+    font-size: 12px;
+  }
+}
+
+
+*::before,
+*::after {
+box-sizing: border-box;
+}
+
+/* Container principale */
+.isola-bella-container {
+width: 90%;
+max-width: 1200px;
+margin: 0 auto;
+padding: 40px;
+}
+
+/* Distacco dalla sezione Hero */
+.isola-bella-sezione {
+margin-top: 60px; /* Distanziamento dalla sezione hero */
+}
+
+/* Layout con due colonne */
+.isola-bella-layout {
+display: flex;
+justify-content: space-between;
+align-items: flex-start;
+margin-bottom: 40px;
+flex-wrap: wrap; /* Permette di andare a capo su schermi piccoli */
+gap: 20px; /* Spazio tra le colonne */
+}
+
+/* Colonna del testo */
+.isola-bella-text-column {
+flex: 0 0 60%; /* Occupiamo il 60% della larghezza per il testo */
+padding-right: 20px;
+margin-bottom: 30px;
+}
+
+/* Evidenziazione del titolo */
+.isola-bella-title {
+font-size: 32px;
+font-weight: 700;
+color: #2c3e50;
+margin-bottom: 20px;
+padding-bottom: 10px;
+border-bottom: 4px solid #007bff; /* Linea colorata sotto il titolo */
+display: inline-block;
+}
+
+/* Testo con larghezza ridotta */
+.isola-bella-text-column p {
+text-align: left;
+line-height: 1.6;
+font-size: 16px;
+color: #555;
+margin-top: 10px;
+}
+
+/* Colonna decorativa a destra */
+.isola-bella-decorative-column {
+flex: 0 0 35%; /* Occupiamo il 35% della larghezza per la colonna decorativa */
+background-color: #f0f0f0; /* Sfondo decorativo chiaro */
+border-radius: 8px;
+height: 300px; /* Altezza definita */
+margin-bottom: 30px;
+}
+
+/* Griglia di Immagini */
+.isola-bella-image-grid {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 20px;
+margin-top: 40px;
+}
+
+/* Immagini della griglia */
+.isola-bella-image-item {
+position: relative;
+overflow: hidden;
+border-radius: 8px;
+box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+transition: transform 0.3s ease-in-out;
+}
+
+.isola-bella-image-item img {
+width: 100%;
+height: auto;
+display: block;
+transition: transform 0.3s ease;
+}
+
+.isola-bella-image-item:hover img {
+transform: scale(1.05);
+}
+
+/* Lightbox */
+.isola-bella-lightbox {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: rgba(0, 0, 0, 0.8);
+display: none;
+justify-content: center;
+align-items: center;
+z-index: 9999;
+}
+
+.isola-bella-lightbox img {
+max-width: 90%;
+max-height: 80%;
+object-fit: contain;
+}
+
+/* Responsività */
+@media (max-width: 1024px) {
+.isola-bella-container {
+  padding: 20px; /* Aggiungi padding laterale per schermi piccoli */
+}
+
+.isola-bella-layout {
+  flex-direction: column;
+  align-items: center;
+  gap: 20px; /* Spazio tra gli elementi */
+}
+
+.isola-bella-text-column {
+  flex: 0 0 100%;
+  max-width: 100%;
+  padding-right: 0;
+  margin-bottom: 20px; /* Riduci il margine inferiore per la colonna di testo */
+}
+
+.isola-bella-decorative-column {
+  flex: 0 0 100%;
+  margin-bottom: 20px; /* Riduci il margine inferiore per la colonna decorativa */
+}
+
+.isola-bella-image-grid {
+  grid-template-columns: repeat(2, 1fr); /* Due colonne nella griglia su schermi più piccoli */
+  gap: 15px; /* Spazio tra le immagini */
+}
+}
+***
+
+/* Contenitore principale */
+.isola-scopri-cards {
+padding: 60px 20px; /* Aumento del padding superiore e inferiore */
+background-color: #f7f7f7;
+}
+
+/* Contenitore delle card */
+.container {
+max-width: 1200px;
+margin: 0 auto;
+padding: 0 15px;
+}
+
+.isola-scopri-card-container {
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+gap: 30px;
+}
+
+/* Stile per ogni singola card */
+.isola-scopri-card {
+background-color: #fff; /* Background bianco */
+border: 1px solid #ddd;
+border-radius: 8px;
+padding: 20px;
+text-align: center;
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+transition: box-shadow 0.3s ease, transform 0.3s ease;
+overflow: hidden;
+}
+
+/* Immagini all'interno delle card */
+.isola-scopri-card img {
+width: 100%;
+height: 200px;
+object-fit: cover;
+border-radius: 8px;
+transition: transform 0.3s ease;
+}
+
+/* Titolo della card */
+.isola-scopri-card h3 {
+font-size: 1.8rem;
+margin: 20px 0;
+color: #2c3e50;
+}
+
+/* Testo descrittivo della card */
+.isola-scopri-card p {
+font-size: 1rem;
+color: #555;
+margin-bottom: 20px;
+}
+
+/* Rimuovere la sottolineatura dai link */
+.isola-scopri-card a {
+text-decoration: none; /* Rimuove la sottolineatura */
+color: inherit; /* Garantisce che il colore del link erediti dal contenitore */
+}
+
+/* Stile per il pulsante */
+.isola-scopri-card .btn {
+display: inline-block;
+font-size: 1rem;
+color: #fff;
+background-color: #27ae60;
+padding: 10px 20px;
+border-radius: 5px;
+text-decoration: none;
+font-weight: bold;
+transition: background-color 0.3s ease;
+}
+
+/* Hover sul pulsante */
+.isola-scopri-card .btn:hover {
+background-color: #2ecc71;
+}
+
+/* Hover sulla card */
+.isola-scopri-card:hover {
+transform: translateY(-10px);
+box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Hover sull'immagine */
+.isola-scopri-card:hover img {
+transform: scale(1.05);
+}
+
+/* Responsività per schermi più piccoli */
+@media (max-width: 1024px) {
+.isola-scopri-card-container {
+    grid-template-columns: repeat(2, 1fr); /* Due card per riga su tablet */
+    gap: 20px;
+}
+}
+
+/* Responsività per schermi mobili */
+@media (max-width: 768px) {
+.isola-scopri-card-container {
+    grid-template-columns: 1fr; /* Una card per riga su mobile */
+    gap: 20px;
+}
+
+/* Ridurre il padding della sezione su mobile */
+.isola-scopri-cards {
+    padding: 40px 10px; /* Aumento il padding sopra e sotto */
+}
+}
+
+.divisore-intro {
+padding: 30px 20px; /* Ridotto il padding per rendere la sezione più compatta */
+background: linear-gradient(135deg, #2E8B57, #06789d); /* Sfumatura verde */
+color: white;
+text-align: left; /* Allinea il testo a sinistra */
+margin-bottom: 20px; /* Ridotto lo spazio tra questa sezione e la successiva */
+border-top: 2px solid #1c6b3b; /* Linea superiore sottile e verde scura */
+}
+
+.divisore-intro h2 {
+font-size: 2.5rem;
+color: white;
+font-weight: 600;
+margin: 0;
+padding-left: 40px; /* Distanza dal bordo sinistro */
+}
+
+.divisore-intro p {
+font-size: 1.0rem;
+color: white;
+margin-top: 10px;
+line-height: 1.5;
+padding-left: 40px; /* Allineamento con il titolo */
+}
+
+/* Responsività per dispositivi mobili */
+@media (max-width: 768px) {
+.divisore-intro h2 {
+  font-size: 2rem; /* Ridurre la dimensione del titolo su schermi più piccoli */
+  padding-left: 20px; /* Distanza dal bordo su dispositivi più piccoli */
+}
+
+.divisore-intro p {
+  font-size: 1rem; /* Ridurre la dimensione del testo su schermi più piccoli */
+  padding-left: 20px; /* Distanza dal bordo su dispositivi più piccoli */
+}
+}
+
+/* Sezione Blog e Social Media - Separata dalle altre */
+.blog-social {
+padding: 60px 20px;
+background-color: #06789d;
+color: #27ae60; /* Colore del testo bianco per contrasto */
+text-align: center;
+margin-top: 60px; /* Aggiungi margine superiore per separarla dalle altre sezioni */
+border-top: 4px solid #fff; /* Linea separatrice in bianco per dare un confine visivo */
+border-bottom: 4px solid #fff; /* Linea separatrice in bianco per delimitare la sezione */
+}
+
+
+.blog-social h2 {
+font-size: 2.5rem;
+color: #fff; /* Colore del titolo bianco per contrasto sul verde */
+margin-bottom: 20px;
+}
+
+.blog-social p {
+font-size: 1.2rem;
+color: #fff;
+max-width: 900px;
+margin: 0 auto 40px;
+line-height: 1.5;
+}
+
+.social-icons {
+display: flex;
+justify-content: center;
+gap: 30px;
+margin-bottom: 40px;
+
+}
+
+.social-icons a {
+display: inline-block;
+width: 50px;
+height: 50px;
+border-radius: 50%;
+overflow: hidden;
+background-color: #fff; /* Sfondo bianco per le icone */
+box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Ombra per dare un effetto di profondità */
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.social-icons img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+transition: transform 0.3s ease;
+}
+
+.social-icons a:hover {
+transform: scale(1.1); /* Effetto di zoom */
+box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3); /* Ombra più forte durante l'hover */
+}
+
+.social-icons a:hover img {
+transform: scale(1.2); /* Ingigantisce l'immagine durante l'hover */
+}
+
+/* Focus specifico sull'Instagram */
+.instagram-icon {
+border: 2px solid #fff; /* Bordo bianco per evidenziare Instagram */
+padding: 5px;
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.instagram-icon:hover {
+transform: scale(1.1); /* Effetto di zoom maggiore per Instagram */
+box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); /* Ombra più forte per Instagram */
+}
+
+/* Anteprima Feed Instagram */
+.instagram-preview {
+margin-top: 40px;
+padding: 40px;
+background-color: #fff;
+border-radius: 8px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.instagram-preview h3 {
+font-size: 2rem;
+color: #2E8B57;
+margin-bottom: 20px;
+}
+
+.instagram-preview p {
+font-size: 1.1rem;
+color: #555;
+margin-bottom: 30px;
+}
+
+.instagram-feed {
+display: flex;
+justify-content: center;
+gap: 15px;
+}
+
+.instagram-feed img {
+width: 100px;
+height: 100px;
+border-radius: 8px;
+object-fit: cover;
+transition: transform 0.3s ease;
+}
+
+.instagram-feed img:hover {
+transform: scale(1.1); /* Effetto di zoom sulle immagini Instagram */
+}
+
+/* Responsività per dispositivi mobili */
+@media (max-width: 768px) {
+.blog-social h2 {
+  font-size: 2rem; /* Ridurre la dimensione del titolo su dispositivi più piccoli */
+}
+
+.blog-social p {
+  font-size: 1rem; /* Ridurre la dimensione del testo su dispositivi più piccoli */
+}
+
+.social-icons {
+  gap: 20px; /* Ridurre lo spazio tra le icone */
+}
+
+.social-icons a {
+  width: 40px; /* Icone più piccole sui dispositivi mobili */
+  height: 40px;
+}
+
+.instagram-preview h3 {
+  font-size: 1.6rem; /* Ridurre il titolo nell'anteprima Instagram */
+}
+
+.instagram-preview p {
+  font-size: 1rem; /* Ridurre la dimensione del testo nella preview */
+}
+
+.instagram-feed {
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.instagram-feed img {
+  width: 80px; /* Immagini più piccole nei dispositivi mobili */
+  height: 80px;
+}
+}
+
+.footer {
+  background-color: #333;
+  color: #fff;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.footer .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.footer-info {
+  flex: 1;
+  max-width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-info .footer-logo {
+  max-width: 150px; /* Dimensione massima del logo */
+  height: auto;
+}
+
+/* Responsività - Assicurati che il logo non diventi troppo grande sui dispositivi più piccoli */
+@media (max-width: 768px) {
+  .footer-info .footer-logo {
+    max-width: 150px; /* Logo più piccolo sui dispositivi mobili */
+  }
+}
+
+
+.footer-links,
+.footer-contact,
+.footer-social {
+  flex: 1;
+  max-width: 300px;
+}
+
+.footer-links h4,
+.footer-contact h4,
+.footer-social h4 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #ff6f00;
+}
+
+.footer-links ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.footer-links ul li {
+  margin-bottom: 10px;
+}
+
+.footer-links a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-links a:hover {
+  color: #ff6f00;
+}
+
+.footer-contact a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-contact p {
+color: #fff;
+}
+
+.footer-contact a:hover {
+  color: #ff6f00;
+}
+
+/* Icone social */
+.footer-social .social-icons {
+  display: flex;
+  gap: 20px;
+  justify-content: center; /* Centra le icone */
+}
+
+.footer-social .social-icons a {
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.footer-social .social-icons img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+.footer-social .social-icons a:hover img {
+  transform: scale(1.1);
+  opacity: 0.8;
+}
+
+.footer-bottom {
+  margin-top: 40px;
+  font-size: 0.9rem;
+  color: #ddd;
+}
+
+.footer-bottom p {
+  margin: 10px 0;
+  color: white;
+}
+
+.footer-bottom a {
+  color: #ff6f00;
+  text-decoration: none;
+}
+
+.footer-bottom a:hover {
+  text-decoration: underline;
+}
+
+/* Responsività: mobile-first */
+@media (max-width: 768px) {
+  .footer .container {
+      flex-direction: column;
+      text-align: left;
+  }
+
+  .footer-info,
+  .footer-links,
+  .footer-contact,
+  .footer-social {
+      max-width: 100%;
+  }
+
+  .footer-bottom {
+      text-align: center;
+  }
+}
+
+
+********* /* seconda page */
+
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0; /* Rimuove margini di default */
+}
+
+/* Sezione Hero del Museo */
+.hero-museo {
+    position: relative;
+    width: 100%;
+    height: 50vh; /* Ridotto per una Hero più compatta */
+    background-color: #f39c12; /* Colore arancione per il Museo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0; /* Rimuove spazio indesiderato tra header e hero */
+    overflow: hidden;
+}
+
+/* Contenitore del contenuto della Hero */
+.hero-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start; /* Allinea a sinistra */
+    align-items: center;
+    padding: 0 50px; /* Padding laterale per evitare che il testo tocchi il bordo */
+}
+
+/* Titolo della Hero - senza box, con transizione */
+.hero-title {
+    opacity: 0;
+    transform: translateY(-30px); /* Inizia spostato verso l'alto */
+    animation: fadeInSlide 1.2s ease-out forwards; /* Animazione per il titolo */
+    max-width: 70%; /* Limita la larghezza del contenuto */
+    margin-top: 20px; /* Aggiungi margine per spostare il titolo verso il basso */
+    white-space: nowrap; /* Impedisce che il titolo vada su più righe */
+}
+
+/* Titolo principale */
+.hero-title h1 {
+    font-size: 56px;
+    font-weight: 700;
+    margin: 0;
+    letter-spacing: 2px;
+    color: white; /* Colore del titolo bianco */
+}
+
+/* Animazione del titolo */
+@keyframes fadeInSlide {
+    0% {
+        opacity: 0;
+        transform: translateY(-30px); /* Inizialmente spostato verso l'alto */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* Arriva alla posizione finale */
+    }
+}
+
+/* Media Query per schermi tra 1024px e 1440px (Desktop) */
+@media (max-width: 1440px) {
+    .hero-title h1 {
+        font-size: 48px;
+    }
+}
+
+/* Media Query per schermi tra 768px e 1024px (Tablet) */
+@media (max-width: 1024px) {
+    .hero-museo {
+        height: 45vh; /* Hero più corta su tablet */
+    }
+
+    .hero-title h1 {
+        font-size: 40px;
+    }
+}
+
+/* Media Query per schermi tra 480px e 768px (Mobile) */
+@media (max-width: 768px) {
+    .hero-museo {
+        height: 60vh; /* Hero più alta su mobile */
+        padding: 0 20px; /* Riduce il padding su mobile */
+    }
+
+    .hero-title h1 {
+        font-size: 32px; /* Ridotto su schermi piccoli */
+        white-space: nowrap; /* Impedisce che il titolo vada su più righe */
+    }
+
+    .hero-title {
+        text-align: left; /* Allineamento a sinistra su mobile */
+    }
+}
+
+/* Media Query per schermi molto piccoli (Smartphone) */
+@media (max-width: 480px) {
+    .hero-museo {
+        height: 50vh; /* Ridotto su schermi molto piccoli */
+    }
+
+    .hero-title h1 {
+        font-size: 28px; /* Font ancora più piccolo su schermi molto piccoli */
+    }
+}
+
+
+.museo-storia {
+    padding: 60px 20px;
+    background-color: #f9f9f9;
+    font-family: Helvetica, sans-serif;
+}
+
+.contenitore-storia {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Titolo della sezione Storia */
+.titolo-storia {
+    font-size: 32px;
+    font-weight: bold;
+    text-align: left; /* Allinea il titolo a sinistra */
+    margin-bottom: 20px;
+    color: #333; /* Colore scuro per il testo */
+  }
+
+.intro-storia {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 40px;
+}
+
+.timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.evento-storico {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    position: relative;
+}
+
+.evento-storico:hover {
+    transform: translateY(-10px);
+}
+
+.anno {
+    background-color: #FFA500; /* Colore arancione per il Museo */
+    color: #fff;
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 15px 30px;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: -40px;
+}
+
+.contenuto {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    flex: 1;
+}
+
+.testo {
+    flex: 1;
+    text-align: left;
+}
+
+.testo h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #FFA500;
+    margin-bottom: 10px;
+}
+
+.testo p {
+    font-size: 1rem;
+    color: #555;
+}
+
+.immagine {
+    flex: 1;
+    max-width: 400px;
+}
+
+.immagine img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+/* Media Queries per dispositivi più piccoli */
+@media (max-width: 768px) {
+    .timeline {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .evento-storico {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .contenuto {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .anno {
+        font-size: 1.5rem;
+        padding: 10px 20px;
+    }
+
+    .testo h3 {
+        font-size: 1.3rem;
+    }
+
+    .testo p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .titolo-storia {
+        font-size: 2rem;
+    }
+
+    .intro-storia {
+        font-size: 1rem;
+    }
+
+    .evento-storico {
+        padding: 15px;
+    }
+
+    .anno {
+        font-size: 1.3rem;
+        padding: 8px 16px;
+    }
+}
+
+.divisore-arancio {
+    height: 4px; /* Altezza più sottile */
+    background: linear-gradient(90deg, #FFA500, #FFB347); /* Gradiente arancio */
+    margin: 60px 0; /* Maggiore distanza sopra e sotto per farlo sembrare più lungo */
+    border-radius: 5px; /* Angoli arrotondati */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Leggera ombra per creare profondità */
+    width: 100%; /* Larghezza al 100% per coprire tutta la pagina */
+  }
+
+
+  .divisore-azzurro {
+    height: 4px; /* Altezza più sottile */
+    background: linear-gradient(to right, #2e6989, #2e6989); /* Gradiente azzurro */
+    border-radius: 10px;
+    position: relative;
+    margin: 60px 0; /* Maggiore distanza sopra e sotto */
+    overflow: hidden;
+    width: 100%; /* Larghezza al 100% per coprire tutta la pagina */
+  }
+  
+  .divisore-azzurro::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 0;
+    width: 100%;
+    height: 20px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.4),rgba(24, 24, 24, 0.4));
+    border-radius: 50%;
+    animation: onda 3s ease-in-out infinite;
+  }
+  
+  @keyframes onda {
+    0% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(10px);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+
+  .sezione-biglietti {
+    background-color: #114e62; /* Colore di sfondo azzurro */
+    color: white;
+    padding: 60px 20px; /* Aggiungi spazio per contenuti */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; /* Allinea il contenuto orizzontalmente al centro */
+  }
+  
+  .sezione-biglietti .contenitore-biglietti {
+    max-width: 1200px; /* Limita la larghezza */
+    width: 100%;
+    margin: 0 auto;
+  }
+  
+  .titolo-biglietti {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: white;
+  }
+  
+  .descrizione-biglietti {
+    font-size: 18px;
+    margin-bottom: 40px;
+    line-height: 1.6;
+    color: white;
+  }
+  
+  /* Stili per la griglia dei biglietti */
+  .opzioni-biglietti {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* 3 colonne responsivo con card più piccole */
+    gap: 40px; /* Maggiore spazio tra le card */
+    justify-content: center; /* Centra la griglia orizzontalmente */
+    align-items: center; /* Allinea le card verticalmente */
+    width: 100%;
+    max-width: 1000px; /* Limita la larghezza della griglia */
+    margin: 0 auto; /* Centra la griglia */
+  }
+  
+  /* Stile per ogni biglietto con dimensioni uniformi */
+  .biglietto {
+    background-color: white;
+    padding: 18px 20px; /* Ridurre la padding interna per una card più compatta */
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    min-height: 300px; /* Altezza ridotta per tutte le card */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Equilibrio tra i contenuti */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  /* Hover effect per biglietti */
+  .biglietto:hover {
+    transform: translateY(-10px); /* Solleva il biglietto */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Titolo del biglietto */
+  .biglietto h3 {
+    font-size: 22px; /* Titolo più piccolo per adattarsi alla nuova dimensione */
+    margin-bottom: 15px;
+    color: #127547; /* Colore azzurro */
+  }
+  
+  /* Prezzo */
+  .prezzo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #127547;
+    margin-bottom: 15px;
+  }
+  
+  /* Descrizione */
+  .descrizione {
+    font-size: 14px;
+    margin-bottom: 30px;
+    color: #333;
+    flex-grow: 1; /* Permette alla descrizione di espandersi senza cambiare l'altezza della card */
+  }
+  
+  /* Bottone Acquista */
+  .bottone-biglietto {
+    background-color: #127547; /* Colore del bottone rosso */
+    color: white;
+    padding: 12px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+  
+  .bottone-biglietto:hover {
+    background-color: #127547; 
+  }
+  
+  /* Media Query per dispositivi piccoli */
+  @media (max-width: 768px) {
+    .titolo-biglietti {
+      font-size: 28px;
+    }
+  
+    .descrizione-biglietti {
+      font-size: 16px;
+    }
+  
+    .biglietto {
+      min-height: 270px; /* Ridurre ulteriormente l'altezza per schermi più piccoli */
+    }
+  
+    .prezzo {
+      font-size: 22px;
+    }
+  
+    .bottone-biglietto {
+      padding: 10px 18px;
+      color: #FFA500;
+    }
+  }
+  
+  /* Media Query per dispositivi molto piccoli */
+  @media (max-width: 480px) {
+    .titolo-biglietti {
+      font-size: 24px;
+    }
+  
+    .descrizione-biglietti {
+      font-size: 14px;
+    }
+  
+    .biglietto {
+      min-height: 240px; /* Ridurre ulteriormente l'altezza per dispositivi molto piccoli */
+    }
+  
+    .prezzo {
+      font-size: 20px;
+    }
+  
+    .bottone-biglietto {
+      padding: 8px 15px;
+    }
+  }
+  
+.informazioni-utili {
+    background-color: #f9f9f9; /* Colore di sfondo chiaro */
+    padding: 40px 20px;
+    text-align: left; /* Allineamento a sinistra */
+  }
+  
+  .informazioni-utili .contenitore-informazioni {
+    max-width: 800px; /* Limita la larghezza per evitare che il testo sia troppo largo */
+    margin: 0 auto; /* Centra la sezione orizzontalmente */
+  }
+  
+  .informazioni-utili h3 {
+    font-size: 24px;
+    font-weight: bold;
+    color:  #114e62; /* Colore azzurro per il titolo */
+    margin-bottom: 20px;
+  }
+  
+  .informazioni-utili p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 15px; /* Distanza tra le righe */
+    color: #333; /* Colore grigio scuro per il testo */
+  }
+  
+  .informazioni-utili p strong {
+    font-weight: bold;
+  }
+  
+  .informazioni-utili a {
+    color:  #114e62; /* Colore azzurro per i link */
+    text-decoration: none; /* Rimuove la sottolineatura */
+  }
+  
+  .informazioni-utili a:hover {
+    text-decoration: underline; /* Aggiunge la sottolineatura al passaggio del mouse */
+  } 
+
+
+ ****** /* page riserva*/
+
+ /* Reset dei margini e padding globali */
+•⁠  ⁠{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Per una gestione più sicura delle dimensioni */
+}
+
+/* Sezione Hero della Riserva */
+.hero-riserva {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Hero occupa tutta l'altezza dello schermo */
+  overflow: hidden; /* Nasconde l'eventuale overflow dell'immagine */
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Centra l'immagine */
+  margin: 0; /* Rimuove ogni margine esterno */
+  padding: 0; /* Rimuove ogni padding interno */
+}
+
+/* Immagine della Riserva con effetto zoom */
+.hero-image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  transform: translate(-50%, -50%); /* Centra l'immagine */
+  overflow: hidden; /* Nasconde la parte dell'immagine che esce dalla Hero */
+}
+
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Assicura che l'immagine riempia il contenitore senza distorsioni */
+  transition: transform 2s ease-in-out; /* Transizione per effetto zoom */
+}
+
+/* Effetto di zoom all'hover */
+.hero-riserva:hover .hero-image img {
+  transform: scale(1.1); /* Effetto di zoom al passaggio del mouse */
+}
+
+/* Media Query per dispositivi più piccoli */
+@media (max-width: 768px) {
+  .hero-riserva {
+      height: 80vh; /* Hero occupa un po' meno spazio su dispositivi mobili */
+  }
+}
+
+/* Media Query per dispositivi desktop */
+@media (min-width: 1024px) {
+  .hero-riserva {
+      height: 100vh; /* Hero occupa tutta l'altezza su desktop */
+  }
+}
+
+ 
+#riserva-sezione {
+  background-color: #f5f5f5; /* Colore di sfondo chiaro */
+  padding: 40px 0; /* Spaziatura verticale */
+}
+
+.riserva-container {
+  width: 90%;
+  max-width: 1200px; /* Limita la larghezza massima */
+  margin: 0 auto; /* Centra il contenuto */
+}
+
+.riserva-layout {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Allineamento a sinistra per il layout */
+  justify-content: center;
+}
+
+.riserva-text-column {
+  text-align: left; /* Allinea il testo a sinistra */
+  margin-top: 20px;
+}
+
+.riserva-title {
+  font-size: 2.5rem; /* Grande dimensione del font per il titolo */
+  font-weight: bold;
+  color: #2c3e50; /* Colore scuro per il titolo */
+  margin-bottom: 20px; /* Distanza dal testo sottostante */
+  line-height: 1.3;
+}
+
+.riserva-text-column p {
+  font-size: 1.2rem; /* Dimensione del font per il paragrafo */
+  line-height: 1.6;
+  color: #34495e; /* Colore del testo */
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Media queries per la responsività */
+@media (max-width: 768px) {
+  .riserva-title {
+    font-size: 2rem; /* Riduce la dimensione del titolo sui dispositivi più piccoli */
+  }
+
+  .riserva-text-column p {
+    font-size: 1rem; /* Riduce la dimensione del testo sui dispositivi mobili */
+    padding: 0 15px; /* Aggiunge un po' di padding laterale per migliorare la leggibilità */
+  }
+
+  #riserva-sezione {
+    padding: 30px 0; /* Riduce la spaziatura verticale sui dispositivi mobili */
+  }
+
+  .riserva-container {
+    width: 95%; /* Rende il contenuto più ampio su schermi piccoli */
+  }
+}
+
+@media (max-width: 480px) {
+  .riserva-title {
+    font-size: 1.8rem; /* Ulteriore riduzione della dimensione del titolo sui dispositivi molto piccoli */
+  }
+
+  .riserva-text-column p {
+    font-size: 0.95rem; /* Riduzione del font per una visualizzazione ottimale */
+  }
+}
+
+/* Container principale */
+.isola-bella-container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px;
+}
+
+/* Distacco dalla sezione Hero */
+.isola-bella-sezione {
+  margin-top: 60px; /* Distanziamento dalla sezione hero */
+}
+
+/* Layout con due colonne */
+.isola-bella-layout {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 40px;
+  flex-wrap: wrap; /* Permette di andare a capo su schermi piccoli */
+  gap: 20px; /* Spazio tra le colonne */
+}
+
+/* Colonna del testo */
+.isola-bella-text-column {
+  flex: 0 0 60%; /* Occupiamo il 60% della larghezza per il testo */
+  padding-right: 20px;
+  margin-bottom: 30px;
+}
+
+/* Evidenziazione del titolo */
+.isola-bella-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 4px solid #007bff; /* Linea colorata sotto il titolo */
+  display: inline-block;
+}
+
+/* Testo con larghezza ridotta */
+.isola-bella-text-column p {
+  text-align: left;
+  line-height: 1.6;
+  font-size: 16px;
+  color: #555;
+  margin-top: 10px;
+}
+
+/* Colonna decorativa a destra */
+.isola-bella-decorative-column {
+  flex: 0 0 35%; /* Occupiamo il 35% della larghezza per la colonna decorativa */
+  background-color: #f0f0f0; /* Sfondo decorativo chiaro */
+  border-radius: 8px;
+  height: 300px; /* Altezza definita */
+  margin-bottom: 30px;
+}
+
+
+.escursioni-container {
+    text-align: center;
+    padding: 0 20px; /* Aggiunto padding sui lati per dare respiro */
+}
+
+.divisore-riserva {
+  width: 100%; /* Occupa tutta la larghezza */
+  height: 10px; /* Imposta un'altezza maggiore per creare un'area visibile dietro la linea */
+  background-color: #f5f5f5; /* Colore di sfondo dietro la linea (azzurro chiaro) */
+  display: flex;
+  justify-content: center; /* Centra la linea blu */
+  align-items: center; /* Allinea verticalmente la linea */
+}
+
+.divisore-riserva::before {
+  content: ""; /* Crea una pseudo-elemento per la linea */
+  width: 80%; /* Imposta la larghezza della linea */
+  height: 2px; /* Imposta l'altezza della linea */
+  background-color: #34495e; /* Colore della linea (blu) */
+}
+
+.galleria {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Responsive grid */
+    gap: 20px; /* Aumentato lo spazio tra le immagini */
+    padding: 20px; /* Distanza interna */
+    justify-content: center; /* Centra la griglia */
+}
+
+/* Aggiungere uno spazio tra le immagini e i bordi */
+.galleria-item {
+    padding: 0 10px; /* Aggiungere padding laterale per lasciare spazio tra le immagini e i bordi */
+}
+
+.galleria-item img {
+    width: 100%;
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 8px;
+}
+
+/* Effetto hover per immagini */
+.galleria-item img:hover {
+    transform: scale(1.05); /* Leggero ingrandimento quando si passa sopra */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Modal (finestra per immagine ingrandita) */
+.modal {
+    display: none; /* Nascondi di default */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Sfondo semitrasparente */
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.modal-content {
+    max-width: 80%;
+    max-height: 80%;
+    margin: auto;
+    border-radius: 8px;
+}
+
+/* Chiusura della finestra */
+.close {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover, .close:focus {
+    color: #ddd;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+.biodiversita-card {
+    padding: 60px 20px; /* Distanza tra il contenuto e i bordi */
+    background-color: #f4f4f4; /* Colore di sfondo chiaro */
+    color: #333; /* Colore del testo */
+    text-align: left; /* Allineamento a sinistra */
+}
+
+/* Contenitore per il contenuto */
+.container {
+    max-width: 1200px; /* Limita la larghezza del contenitore */
+    margin: 0 auto; /* Centrato orizzontalmente */
+    padding: 0 20px; /* Padding per il contenuto */
+}
+
+/* Titolo della sezione */
+.titolo-biodiversita {
+    font-size: 36px; /* Dimensione del titolo */
+    font-weight: bold; /* Grassetto per il titolo */
+    color: #2E8B57; /* Verde scuro per il titolo */
+    margin-bottom: 5px; /* Ridurre la distanza tra il titolo e il sottotitolo */
+    text-transform: uppercase; /* Maiuscole per il titolo */
+    letter-spacing: 1.5px; /* Spaziatura tra le lettere */
+    border-bottom: 2px solid #2E8B57; /* Linea sotto il titolo, ridotta in lunghezza */
+    width: 200px; /* Limita la lunghezza della linea */
+    padding-bottom: 10px; /* Spazio tra il titolo e la linea */
+}
+
+/* Sottotitolo */
+.sottotitolo-biodiversita h3 {
+    font-size: 20px; /* Dimensione del sottotitolo */
+    font-weight: 500; /* Grassetto per il sottotitolo */
+    color: #555; /* Colore grigio scuro per il sottotitolo */
+    margin-bottom: 20px; /* Spazio tra il sottotitolo e il testo */
+}
+
+
+/* Descrizione della sezione */
+.descrizione-biodiversita {
+    font-size: 18px; /* Dimensione del testo descrittivo */
+    line-height: 1.6; /* Maggiore spaziatura tra le righe */
+    color: #555; /* Colore grigio per il testo */
+    max-width: 900px; /* Limita la larghezza del testo per migliorare la leggibilità */
+    margin-bottom: 20px; /* Spazio sotto il testo */
+}
+
+/* Media Query per schermi più piccoli */
+@media (max-width: 768px) {
+    .titolo-biodiversita {
+        font-size: 28px; /* Ridurre la dimensione del titolo su tablet */
+    }
+
+    .sottotitolo-biodiversita {
+        font-size: 18px; /* Ridurre la dimensione del sottotitolo su tablet */
+    }
+
+    .descrizione-biodiversita {
+        font-size: 16px; /* Ridurre la dimensione del testo su tablet */
+    }
+}
+
+@media (max-width: 480px) {
+    .titolo-biodiversita {
+        font-size: 24px; /* Ridurre ulteriormente la dimensione del titolo su dispositivi mobili */
+    }
+
+    .sottotitolo-biodiversita {
+        font-size: 16px; /* Ridurre ulteriormente la dimensione del sottotitolo su dispositivi mobili */
+    }
+
+    .descrizione-biodiversita {
+        font-size: 14px; /* Ridurre ulteriormente il testo */
+    }
+}
+
+/* Divisore verde tra le sezioni */
+.divisore-verde {
+    height: 4px; /* Spessore della linea */
+    background-color: #2E8B57; /* Verde scuro */
+    margin: 40px 0; /* Spazio sopra e sotto il divisore */
+}
+
+
+#biodiversita-cards {
+    padding: 50px 20px;
+    background-color: #f9f9f9; /* Colore di sfondo chiaro */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#biodiversita-cards {
+    padding: 50px 20px;
+    background-color: #f9f9f9; /* Colore di sfondo chiaro */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Griglia delle card */
+.biodiversita-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Responsività */
+    gap: 30px; /* Spaziatura tra le card */
+    justify-items: center;
+}
+
+/* Card (rende l'intera card cliccabile) */
+.card {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden; /* Per evitare che il contenuto fuoriesca */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    width: 100%;
+    max-width: 320px; /* Limita la larghezza massima delle card */
+    text-decoration: none; /* Rimuove la sottolineatura */
+}
+
+/* Rende l'intera card cliccabile */
+.card:hover {
+    transform: translateY(-10px); /* Solleva la card */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Aumenta l'ombra al passaggio del mouse */
+}
+
+/* Immagine delle card */
+.card-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover; /* Immagine adattata senza distorsioni */
+}
+
+/* Contenuto delle card */
+.card-content {
+    padding: 20px;
+    text-align: center;
+}
+
+.card h3 {
+    font-size: 24px;
+    color: #2E8B57; /* Colore verde per il titolo */
+    margin-bottom: 15px;
+}
+
+/* Effetto hover sul contenuto */
+.card:hover .card-content h3 {
+    color: #FF8C00; /* Cambia il colore del testo quando si passa sopra */
+}
+
+/* Media Query per dispositivi mobili */
+@media (max-width: 768px) {
+    .card h3 {
+        font-size: 20px;
+    }
+
+    .card-link {
+        font-size: 14px;
+    }
+}
+**** /* page escursioni */
+
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0; /* Rimuove margini di default */
+}
+
+/* Sezione Hero delle Escursioni */
+.hero-escursioni {
+    position: relative;
+    width: 100%;
+    height: 50vh; /* Ridotto per una Hero più compatta */
+    background-color: #f4944a; /* Colore verde per il tema delle escursioni */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0; /* Rimuove spazio indesiderato tra header e hero */
+    overflow: hidden;
+}
+
+.hero-content {
+ position: relative;
+ width: 100%;
+ height: 100%;
+ display: flex;
+ justify-content: flex-start; /* Allinea a sinistra */
+ align-items: center;
+ padding: 0 50px 0 100px; /* Aggiunge padding a sinistra per spostare il contenuto verso destra */
+}
+
+/* Alternativa con margine a sinistra */
+.hero-content {
+ position: relative;
+ width: 100%;
+ height: 100%;
+ display: flex;
+ justify-content: flex-start; /* Allinea a sinistra */
+ align-items: center;
+ margin-left: 80px; /* Aggiunge margine a sinistra per spostare il contenuto verso destra */
+}
+
+/* Titolo della Hero - senza box, con transizione */
+.hero-title {
+    opacity: 0;
+    transform: translateY(-30px); /* Inizia spostato verso l'alto */
+    animation: fadeInSlide 1.2s ease-out forwards; /* Animazione per il titolo */
+    max-width: 70%; /* Limita la larghezza del contenuto */
+    margin-top: 20px; /* Aggiungi margine per spostare il titolo verso il basso */
+    white-space: nowrap; /* Impedisce che il titolo vada su più righe */
+}
+
+/* Titolo principale */
+.hero-title h1 {
+    font-size: 56px;
+    font-weight: 700;
+    margin: 0;
+    letter-spacing: 2px;
+    color: white; /* Colore del titolo bianco */
+}
+
+/* Animazione del titolo */
+@keyframes fadeInSlide {
+    0% {
+        opacity: 0;
+        transform: translateY(-30px); /* Inizialmente spostato verso l'alto */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* Arriva alla posizione finale */
+    }
+}
+
+/* Media Query per schermi tra 1024px e 1440px (Desktop) */
+@media (max-width: 1440px) {
+    .hero-title h1 {
+        font-size: 48px;
+    }
+}
+
+/* Media Query per schermi tra 768px e 1024px (Tablet) */
+@media (max-width: 1024px) {
+    .hero-escursioni {
+        height: 45vh; /* Hero più corta su tablet */
+    }
+
+    .hero-title h1 {
+        font-size: 40px;
+    }
+}
+
+/* Media Query per schermi tra 480px e 768px (Mobile) */
+@media (max-width: 768px) {
+    .hero-escursioni {
+        height: 60vh; /* Hero più alta su mobile */
+        padding: 0 20px; /* Riduce il padding su mobile */
+    }
+
+    .hero-title h1 {
+        font-size: 32px; /* Ridotto su schermi piccoli */
+        white-space: nowrap; /* Impedisce che il titolo vada su più righe */
+    }
+
+    .hero-title {
+        text-align: left; /* Allineamento a sinistra su mobile */
+    }
+}
+
+/* Media Query per schermi molto piccoli (Smartphone) */
+@media (max-width: 480px) {
+    .hero-escursioni {
+        height: 50vh; /* Ridotto su schermi molto piccoli */
+    }
+
+    .hero-title h1 {
+        font-size: 28px; /* Font ancora più piccolo su schermi molto piccoli */
+    }
+}
+
+
+
+.escursioni-isola-bella {
+    background-color: #f0f0f0; /* Colore di sfondo delicato */
+    padding: 80px 20px; /* Spazio generoso sopra e sotto */
+    color: #333; /* Colore del testo scuro per una buona leggibilità */
+    font-family: 'Arial', sans-serif;
+}
+
+/* Contenitore per il contenuto */
+.escursioni-container {
+    display: flex; /* Layout a 2 colonne */
+    justify-content: space-between; /* Spazio tra testo e immagine */
+    align-items: center; /* Centra verticalmente il contenuto */
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap; /* Per dispositivi più piccoli, la colonna può andare sotto */
+}
+
+/* Stile per il testo */
+.escursioni-text {
+    max-width: 50%; /* Limita la larghezza del testo */
+    padding-right: 20px; /* Distanza tra il testo e l'immagine */
+}
+
+.escursioni-title {
+    font-size: 36px; /* Titolo grande e visibile */
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 20px; /* Spazio sotto il titolo */
+}
+
+.escursioni-description {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #555; /* Colore leggermente più chiaro rispetto al titolo */
+    margin-bottom: 30px;
+}
+
+/* Stile per l'immagine */
+.escursioni-image-container {
+    flex: 1; /* L'immagine prende lo spazio rimanente */
+    text-align: center; /* Centra l'immagine */
+}
+
+.escursioni-img {
+    max-width: 100%; /* L'immagine non deve eccedere la larghezza del contenitore */
+    height: auto; /* Mantieni la proporzione dell'immagine */
+    border-radius: 8px; /* Bordo arrotondato per un look più morbido */
+}
+
+/* Media query per dispositivi più piccoli (tablet e mobile) */
+@media (max-width: 768px) {
+    .escursioni-container {
+        flex-direction: column; /* Le colonne si impilano una sopra l'altra */
+        text-align: center; /* Allinea il testo al centro su schermi piccoli */
+    }
+
+    .escursioni-text {
+        max-width: 100%; /* Il testo prende tutta la larghezza disponibile */
+        padding-right: 0;
+        margin-bottom: 20px; /* Distanza tra il testo e l'immagine */
+    }
+
+    .escursioni-img {
+        width: 80%; /* Riduci leggermente la dimensione dell'immagine su schermi piccoli */
+    }
+}
+
+@media (max-width: 480px) {
+    .escursioni-title {
+        font-size: 28px; /* Riduci il titolo su schermi molto piccoli */
+    }
+
+    .escursioni-description {
+        font-size: 16px; /* Riduci la dimensione del testo */
+    }
+
+    .escursioni-img {
+        width: 100%; /* Immagine a tutta larghezza su schermi piccoli */
+    }
+}
+
+
+.escursioni-percorsi {
+    background-color: #f9f9f9;
+    padding: 60px 20px;
+    color: #333;
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+}
+
+/* Contenitore principale, centrato con larghezza massima */
+.escursioni-container {
+    max-width: 1200px; /* Impedisce che il contenuto si estenda troppo */
+    margin: 0 auto; /* Centra il contenitore */
+}
+
+/* Contenitore per le card dei percorsi */
+.percorsi-cards {
+    display: flex;
+    justify-content: center; /* Centra le card */
+    gap: 30px;
+    flex-wrap: nowrap; /* Le card non vanno a capo */
+    margin: 0 auto; /* Centra il contenitore delle card */
+}
+
+/* Card di ogni percorso */
+.percorsi-card {
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 350px; /* Limita la larghezza delle card */
+    text-align: left;
+    padding: 20px;
+    margin: 10px;
+    flex-shrink: 0; /* Impedisce che le card si riducano su schermi piccoli */
+}
+
+.percorsi-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.percorsi-card-title {
+    font-size: 22px;
+    font-weight: bold;
+    color: #f4944a;
+    margin-bottom: 15px;
+}
+
+.percorsi-card-description {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #555;
+}
+
+.cta-btn:hover {
+    background-color: #e67e22;
+}
+
+/* Media Query per dispositivi mobili e tablet */
+@media (max-width: 768px) {
+    .percorsi-cards {
+        justify-content: center; /* Centra le card in spazi più stretti */
+        gap: 15px; /* Riduce la distanza tra le card */
+    }
+
+    .percorsi-card {
+        width: 300px; /* Le card hanno una larghezza fissa su schermi più piccoli */
+    }
+
+    .cta-btn {
+        font-size: 18px;
+        width: 80%;
+    }
+}
+
+@media (max-width: 480px) {
+    .percorsi-title {
+        font-size: 30px;
+    }
+
+    .percorsi-description {
+        font-size: 16px;
+    }
+
+    .percorsi-card-title {
+        font-size: 20px;
+    }
+
+    .percorsi-card-description {
+        font-size: 14px;
+    }
+
+    .cta-btn {
+        font-size: 16px;
+    }
+}
+
+.divisore-escursioni {
+  width: 100%; /* Occupa tutta la larghezza */
+  height: 10px; /* Imposta un'altezza maggiore per creare un'area visibile dietro la linea */
+  background-color:#f9f9f9; /* Colore di sfondo dietro la linea */
+  display: flex;
+  justify-content: center; /* Centra la linea arancione */
+  align-items: center; /* Allinea verticalmente la linea */
+}
+
+.divisore-escursioni::before {
+  content: ""; /* Crea una pseudo-elemento per la linea */
+  width: 80%; /* Imposta la larghezza della linea */
+  height: 2px; /* Imposta l'altezza della linea */
+  background-color: #f4944a; /* Colore della linea (arancione) */
+}
+
+.concept-isola-bella {
+    background-color: #f9f9f9;
+    padding: 60px 20px;
+    color: #333;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Contenitore principale per la sezione */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Titolo della sezione */
+.section-title {
+    font-size: 36px;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+/* Descrizione della sezione */
+.section-description {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 20px;
+    text-align: left;  /* Allinea il testo a sinistra */
+    max-width: 800px;
+    margin-left: 0;
+}
+
+/* Media Query per dispositivi mobili */
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 28px;
+    }
+
+    .section-description {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .section-title {
+        font-size: 24px;
+    }
+
+    .section-description {
+        font-size: 14px;
+    }
+}
+
+.escursioni-info-utili {
+    background-color: #f4944a;  /* Colore di sfondo chiaro per mantenere la coerenza con il resto */
+    padding: 60px 20px;
+    color: #333;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Contenitore principale per la sezione */
+.escursioni-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Titolo della sezione */
+.info-title {
+    font-size: 36px;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+/* Stile della lista */
+.info-list {
+    list-style-type: none;  /* Rimuove i pallini dalla lista */
+    padding-left: 0;  /* Rimuove il padding predefinito */
+    margin: 0;
+}
+
+/* Ogni voce della lista */
+.info-list li {
+    font-size: 18px;
+    line-height: 1.8;
+    color:#2c3e50;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.info-list li strong {
+    font-weight: bold;
+    color: #2c3e50; /* Colore del testo forte, in linea con il design */
+}
+
+/* Media Query per dispositivi mobili */
+@media (max-width: 768px) {
+    .info-title {
+        font-size: 28px;
+    }
+
+    .info-list li {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .info-title {
+        font-size: 24px;
+    }
+
+    .info-list li {
+        font-size: 14px;
+    }
+}
+
+.email-link {
+    color: #2c3e50;  /* Colore arancione per il link, per coerenza con il resto del sito */
+    text-decoration: none;  /* Rimuove la sottolineatura predefinita */
+    font-weight: bold;  /* Grassetto per evidenziare il link */
+}
+
+.email-link:hover {
+    color: #FFD700;  /* Colore più scuro al passaggio del mouse */
+    text-decoration: underline;  /* Aggiunge la sottolineatura al passaggio del mouse */
+}
+
+
+****** /* page info&tariffe */
+
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0; /* Rimuove margini di default */
+}
+
+/* Sezione Hero per Info e Tariffe */
+.hero-info-tariffe {
+    position: relative;
+    width: 100%;
+    height: 50vh; /* Hero con altezza compatta */
+    background-color: #80acb5; /* Colore blu chiaro per il tema informativo */
+    display: flex;
+    justify-content: center; /* Centra i contenuti orizzontalmente */
+    align-items: center; /* Centra i contenuti verticalmente */
+    padding: 0 20px; /* Padding laterale per evitare che il contenuto tocchi i bordi */
+}
+
+/* Contenitore del contenuto della Hero */
+.hero-content {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: flex-start; /* Allinea il contenuto a sinistra */
+    align-items: center; /* Centra verticalmente il contenuto */
+    padding-left: 30px; /* Distanza dal bordo sinistro */
+}
+
+/* Titolo della Hero */
+.hero-title {
+    opacity: 0;
+    transform: translateY(-30px); /* Inizia spostato verso l'alto */
+    animation: fadeInSlide 1.2s ease-out forwards; /* Animazione per il titolo */
+    font-size: 56px; /* Impostazione per desktop */
+    color: white; /* Colore del titolo bianco */
+    letter-spacing: 2px; /* Distanza tra le lettere */
+}
+
+/* Animazione del titolo */
+@keyframes fadeInSlide {
+    0% {
+        opacity: 0;
+        transform: translateY(-30px); /* Inizialmente spostato verso l'alto */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* Arriva alla posizione finale */
+    }
+}
+
+/* Media Query per schermi tra 1024px e 1440px (Desktop) */
+@media (max-width: 1440px) {
+    .hero-title {
+        font-size: 48px;
+    }
+}
+
+/* Media Query per schermi tra 768px e 1024px (Tablet) */
+@media (max-width: 1024px) {
+    .hero-info-tariffe {
+        height: 45vh; /* Hero più corta su tablet */
+    }
+
+    .hero-title {
+        font-size: 40px;
+    }
+}
+
+/* Media Query per schermi tra 480px e 768px (Mobile) */
+@media (max-width: 768px) {
+    .hero-info-tariffe {
+        height: 60vh; /* Hero più alta su mobile */
+        padding: 0 20px; /* Riduce il padding su mobile */
+    }
+
+    .hero-title {
+        font-size: 32px; /* Ridotto su schermi piccoli */
+        white-space: nowrap; /* Impedisce che il titolo vada su più righe */
+        text-align: left; /* Allineamento a sinistra su mobile */
+    }
+
+    .hero-content {
+        padding-left: 20px; /* Riduce la distanza dal bordo su mobile */
+    }
+}
+
+/* Media Query per schermi molto piccoli (Smartphone) */
+@media (max-width: 480px) {
+    .hero-info-tariffe {
+        height: 50vh; /* Ridotto su schermi molto piccoli */
+    }
+
+    .hero-title h1 {
+        font-size: 28px; /* Font ancora più piccolo su schermi molto piccoli */
+    }
+}
+
+.arrivo-contenuto {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: left; /* Allinea il testo a sinistra */
+}
+
+.arrivo-section h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  text-align: left; /* Allinea i titoli a sinistra */
+}
+
+.arrivo-section p {
+  font-size: 18px;
+  margin-bottom: 40px;
+}
+
+.arrivo-opzioni {
+  display: grid; /* Usa grid per allineare tutto sulla stessa riga */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* 3 colonne a seconda della larghezza disponibile */
+  gap: 20px;
+}
+
+.arrivo-opzione {
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.arrivo-opzione h3 {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.arrivo-opzione p {
+  font-size: 16px;
+  color: #555;
+}
+
+/* Sezione "Tariffe di Ingresso" */
+.tariffe-section {
+  padding: 40px 20px;
+  background-color: white;
+}
+
+.tariffe-contenuto {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: left; /* Allinea il testo a sinistra */
+}
+
+.tariffe-section h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  text-align: left; /* Allinea i titoli a sinistra */
+}
+
+.tariffe-section p {
+  font-size: 18px;
+  margin-bottom: 40px;
+}
+
+.tariffe-opzioni {
+  display: grid; /* Usa grid per allineare tutto sulla stessa riga */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* 3 colonne a seconda della larghezza disponibile */
+  gap: 20px;
+}
+
+.tariffe-opzione {
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.tariffe-opzione h3 {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.tariffe-opzione p {
+  font-size: 16px;
+  color: #555;
+}
+
+.tariffe-opzione strong {
+  font-weight: bold;
+}
+
+/* Sezione Contatti */
+.contatti-section {
+  padding: 40px 20px;
+  background-color:#b8dcdf;
+}
+
+.contatti-contenuto {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: left; /* Allinea il testo a sinistra */
+}
+
+.contatti-section h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  text-align: left; /* Allinea i titoli a sinistra */
+}
+
+.contatti-box {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 40px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.contatti-box h3 {
+  font-size: 22px;
+  margin-bottom: 15px;
+}
+
+.contatti-box p {
+  font-size: 16px;
+  color: #555;
+}
+
+.contatti-box a {
+  color: #8bb4b8;
+  text-decoration: none;
+}
+
+.contatti-box a:hover {
+  text-decoration: underline;
+}
+
+/* Responsività */
+@media (max-width: 768px) {
+  .arrivo-opzioni, .tariffe-opzioni {
+      grid-template-columns: 1fr; /* 1 colonna in schermi piccoli */
+  }
+
+  .arrivo-opzione, .tariffe-opzione {
+      width: 100%; /* Ogni box prende tutta la larghezza disponibile */
+  }
+
+  .contatti-box {
+      width: 100%; /* I box di contatto occupano tutta la larghezza */
+      margin: 0 auto;
+  }
+}
+
+.divider-info-tariffe {
+  border: none;
+  border-top: 1px solid #8bb4b8; /* Linea sottile grigia */
+  margin: 20px 0; /* Distanza sopra e sotto il divisore */
+  width: 100%; /* Larghezza completa */
+}
+
+****** 
+
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: #333;
+  background-color: #f4f4f4;
+}
+
+/* Header */
+.fauna-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #2e8b57;
+  color: white;
+}
+
+.fauna-logo img {
+  height: 50px;
+}
+
+.fauna-nav a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 15px;
+  font-size: 18px;
+}
+
+.fauna-nav a:hover {
+  background-color: #1f6e42;
+}
+
+/* Main Content */
+.fauna-main {
+  padding: 50px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Sezione Introduzione */
+.fauna-sezione-introduzione {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  margin-top: 60px; /* Spazio maggiore tra l'header e il contenuto */
+}
+
+.fauna-titolo-introduzione h1 {
+  font-size: 36px;
+  margin: 0;
+}
+
+.fauna-paragrafo-introduzione {
+  max-width: 50%; /* Paragrafo più stretto per desktop */
+}
+
+.fauna-paragrafo-introduzione p {
+  font-size: 18px;
+  color: #555;
+  line-height: 1.8;
+  margin: 0;
+}
+
+/* Divider sottile tra il paragrafo e le card */
+.fauna-divider {
+  width: 100%;
+  height: 2px;
+  background-color: #00b3b3; /* Colore acqua marina */
+  margin: 40px 0;
+}
+
+/* Sezione Card Animali */
+.fauna-sezione-specie {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.fauna-card-specie {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: 20px;
+  text-align: center;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.fauna-card-specie img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.fauna-card-specie h3 {
+  font-size: 22px;
+  margin: 10px 0;
+}
+
+.fauna-card-specie p {
+  font-size: 16px;
+  color: #555;
+}
+
+/* Sezione Avvertenze */
+.fauna-sezione-avvertenze {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  margin-top: 40px;
+}
+
+.fauna-sezione-avvertenze h2 {
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+.fauna-sezione-avvertenze p {
+  font-size: 16px;
+  color: #555;
+}
+
+/* Collegamenti alle altre pagine */
+.fauna-collegamenti {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.fauna-collegamento {
+  background-color: #2e8b57;
+  color: white;
+  padding: 12px 25px;
+  text-decoration: none;
+  font-size: 16px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.fauna-collegamento:hover {
+  background-color: #1f6e42;
+}
+
+/* Responsive: Adattamento per dispositivi mobili */
+@media (max-width: 768px) {
+  /* Header */
+  .fauna-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .fauna-nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+
+  /* Main */
+  .fauna-main {
+    padding: 20px;
+  }
+
+  /* Sezione Introduzione */
+  .fauna-sezione-introduzione {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 40px;
+  }
+
+  .fauna-titolo-introduzione h1 {
+    font-size: 28px;
+  }
+
+  .fauna-paragrafo-introduzione {
+    max-width: 90%; /* Paragrafo più stretto su mobile */
+  }
+
+  .fauna-paragrafo-introduzione p {
+    font-size: 16px;
+  }
+
+  /* Divider */
+  .fauna-divider {
+    margin: 30px 0;
+  }
+
+  /* Sezione Card Animali */
+  .fauna-sezione-specie {
+    grid-template-columns: 1fr; /* Una sola colonna per i dispositivi mobili */
+    gap: 20px;
+  }
+
+  .fauna-card-specie {
+    padding: 15px;
+  }
+
+  .fauna-card-specie img {
+    max-height: 200px; /* Limitare l'altezza delle immagini su mobile */
+  }
+
+  /* Sezione Avvertenze */
+  .fauna-sezione-avvertenze {
+    padding: 15px;
+  }
+
+  /* Collegamenti alle altre pagine */
+  .fauna-collegamenti {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .fauna-collegamento {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+}
+
+*****
+
+.hero-emergenze {
+  background-color: #4db8b0; /* Colore acqua marina */
+  padding: 120px 20px; /* Spazio superiore per Hero */
+  text-align: left; /* Allineamento del testo a sinistra */
+  color: white;
+  position: relative;
+}
+
+.contenuto-hero {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+}
+
+.testo-hero {
+  padding: 20px;
+  max-width: 800px; /* Limita la larghezza del testo */
+}
+
+.testo-hero h1 {
+  font-size: 60px; /* Dimensione del titolo */
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-transform: lowercase;
+  letter-spacing: 2px;
+}
+
+.testo-hero p {
+  font-size: 22px;
+  line-height: 1.6;
+  color: white;
+}
+
+.introduzione-emergenze {
+  background-color: #f1f1f1; /* Colore di sfondo chiaro */
+  padding: 50px 20px;
+  color: #333;
+}
+
+.introduzione-emergenze .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.introduzione-emergenze h2 {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #2c3e50;
+}
+
+.introduzione-contenuto {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.introduzione-contenuto p {
+  font-size: 18px;
+  line-height: 1.8;
+  color: #555;
+  max-width: 700px;
+}
+
+.introduzione-immagine {
+  width: 40%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Divider Style */
+.divider {
+  width: 100%;
+  height: 2px;
+  background-color: #4db8b0;
+  margin: 40px 0;
+}
+
+/* Sezione Principali Emergenze */
+.principali-emergenze {
+  padding: 50px 20px;
+  background-color: #e6f7f7; /* Colore di sfondo azzurro chiaro */
+}
+
+.principali-emergenze h2 {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: left;
+  color: #2c3e50;
+}
+
+/* Contenuto Principali Emergenze */
+.emergenza-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px; /* Distanza tra le sezioni */
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.emergenza-contenuto {
+  width: 55%; /* Testo occupa il 55% */
+}
+
+.emergenza-item h3 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #2c3e50;
+}
+
+.emergenza-item p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #666;
+}
+
+.emergenza-immagine {
+  width: 40%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Responsività */
+@media (max-width: 768px) {
+  .introduzione-contenuto {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .introduzione-immagine {
+      width: 60%; /* Le immagini occupano il 60% su schermi più piccoli */
+  }
+
+  .emergenza-item {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .emergenza-immagine {
+      width: 80%; /* Le immagini occupano il 80% su schermi più piccoli */
+  }
+
+  .emergenza-contenuto {
+      width: 100%;
+      text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .emergenza-item {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .emergenza-immagine {
+      width: 100%; /* Le immagini occupano tutta la larghezza su schermi molto stretti */
+  }
+}
+
+
+.navigazione-flora-fauna {
+  padding: 40px;
+  background-color: #eaf7ff; /* Sfondo chiaro per la sezione */
+  border-radius: 10px;
+  margin-top: 30px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Leggera ombra per dare profondità */
+}
+
+/* Contenitore dei link centrato */
+.contenuto-navigazione {
+  display: flex;
+  justify-content: center;
+  gap: 40px; /* Maggiore distanza tra i link */
+  flex-wrap: wrap; /* Permette la disposizione su più righe se lo schermo è troppo stretto */
+}
+
+/* Stile per i link */
+.collegamento {
+  background-color: #0056b3; /* Colore di sfondo del pulsante */
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 20px 40px;
+  border-radius: 8px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Spazio tra l'icona e il testo */
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+/* Icona accanto al testo */
+.icon {
+  font-size: 22px;
+}
+
+/* Effetto hover per un'interazione visibile */
+.collegamento:hover {
+  background-color: #ff5733; /* Colore di hover arancione */
+  transform: scale(1.05); /* Aumento dimensione al passaggio del mouse */
+}
+
+/* Media query per dispositivi mobili */
+@media (max-width: 768px) {
+  .contenuto-navigazione {
+      flex-direction: column; /* Disposizione dei link in colonna su schermi più piccoli */
+      gap: 20px;
+  }
+
+  .collegamento {
+      font-size: 16px;
+      padding: 15px 30px;
+  }
+}
+
+****** /* Termini e condizioni / Policy della privacy*/
+
+#header-termini {
+  background-color: #114e62; /* Colore header */
+  padding: 30px 0;
+  color: white;
+  text-align: center;
+}
+
+#header-termini h1 {
+  margin: 0;
+  font-size: 36px;
+}
+
+/* Sezioni dei Termini */
+#main-termini {
+  padding: 40px 20px;
+}
+
+.section-termini {
+  margin-bottom: 40px;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.title-termini {
+  font-size: 24px;
+  color: #114e62; /* Colore dei titoli */
+  margin-bottom: 10px;
+}
+
+.section-termini p {
+  font-size: 16px;
+  color: #555;
+}
+
+.section-termini ul {
+  padding-left: 20px;
+  list-style-type: disc;
+}
+
+.section-termini a {
+  color: #27ae60; /* Colore link */
+  text-decoration: none;
+}
+
+.section-termini a:hover {
+  text-decoration: underline;
+}
+
+/* Footer */
+#footer-termini {
+  background-color: #114e62;
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+}
+
+#footer-termini p {
+  margin: 0;
+  font-size: 14px;
+  color: white;
+}
+
+/* Media Query per dispositivi di dimensioni medio-piccole (max-width: 1024px) */
+@media (max-width: 1024px) {
+  #header-termini h1 {
+      font-size: 30px;
+  }
+
+  .section-termini {
+      padding: 18px;
+  }
+
+  .title-termini {
+      font-size: 22px;
+  }
+
+  .section-termini p {
+      font-size: 15px;
+  }
+}
+
+/* Media Query per dispositivi più piccoli (max-width: 768px) */
+@media (max-width: 768px) {
+  #header-termini h1 {
+      font-size: 26px;
+  }
+
+  .section-termini {
+      padding: 15px;
+  }
+
+  .title-termini {
+      font-size: 20px;
+  }
+
+  .section-termini p {
+      font-size: 14px;
+  }
+
+  .section-termini ul {
+      padding-left: 15px;
+  }
+
+  #footer-termini p {
+      font-size: 12px;
+  }
+}
+
+/* Media Query per dispositivi molto piccoli (max-width: 480px) */
+@media (max-width: 480px) {
+  body {
+      padding: 10px;
+  }
+
+  #header-termini h1 {
+      font-size: 22px;
+  }
+
+  .section-termini {
+      padding: 12px;
+  }
+
+  .title-termini {
+      font-size: 18px;
+  }
+
+  .section-termini p {
+      font-size: 13px;
+  }
+
+  .section-termini ul {
+      padding-left: 10px;
+  }
+
+  #footer-termini p {
+      font-size: 10px;
+  }
+}
+
+***
+#header-privacy {
+  background-color: #114e62; /* Colore header specifico per la privacy */
+  padding: 30px 0;
+  color: white;
+  text-align: center;
+}
+
+#header-privacy h1 {
+  margin: 0;
+  font-size: 36px;
+}
+
+/* Sezioni della Privacy */
+#main-privacy {
+  padding: 40px 20px;
+}
+
+.section-privacy {
+  margin-bottom: 40px;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.section-privacy h2 {
+  font-size: 24px;
+  color: #114e62; /* Colore dei titoli specifici per la privacy */
+  margin-bottom: 10px;
+}
+
+.title-privacy {
+  font-size: 24px;
+  color: #114e62; /* Colore dei titoli specifici per la privacy */
+  margin-bottom: 10px;
+}
+
+.section-privacy p {
+  font-size: 16px;
+  color: #555;
+}
+
+.section-privacy ul {
+  padding-left: 20px;
+  list-style-type: disc;
+}
+
+.section-privacy a {
+  color: #27ae60; /* Colore link specifico per la privacy */
+  text-decoration: none;
+}
+
+.section-privacy a:hover {
+  text-decoration: underline;
+}
+
+/* Footer per la pagina della Privacy */
+#footer-privacy {
+  background-color: #114e62;
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+}
+
+#footer-privacy p {
+  margin: 0;
+  font-size: 14px;
+  color: white;
+}
+
+/* Media Query per dispositivi di dimensioni medio-piccole (max-width: 1024px) */
+@media (max-width: 1024px) {
+  #header-privacy h1 {
+      font-size: 30px;
+  }
+
+  .section-privacy {
+      padding: 18px;
+  }
+
+  .title-privacy {
+      font-size: 22px;
+  }
+
+  .section-privacy p {
+      font-size: 15px;
+  }
+}
+
+/* Media Query per dispositivi più piccoli (max-width: 768px) */
+@media (max-width: 768px) {
+  #header-privacy h1 {
+      font-size: 26px;
+  }
+
+  .section-privacy {
+      padding: 15px;
+  }
+
+  .title-privacy {
+      font-size: 20px;
+  }
+
+  .section-privacy p {
+      font-size: 14px;
+  }
+
+  .section-privacy ul {
+      padding-left: 15px;
+  }
+
+  #footer-privacy p {
+      font-size: 12px;
+  }
+}
+
+/* Media Query per dispositivi molto piccoli (max-width: 480px) */
+@media (max-width: 480px) {
+  body {
+      padding: 10px;
+  }
+
+  #header-privacy h1 {
+      font-size: 22px;
+  }
+
+  .section-privacy {
+      padding: 12px;
+  }
+
+  .title-privacy {
+      font-size: 18px;
+  }
+
+  .section-privacy p {
+      font-size: 13px;
+  }
+
+  .section-privacy ul {
+      padding-left: 10px;
+  }
+
+  #footer-privacy p {
+      font-size: 10px;
+  }
+}
+
+**** /* pagina di acquisto diretta dal footer */
+
+#header-acquisto {
+  background-color: #114e62;
+  color: white;
+  padding: 30px;
+  text-align: center;
+}
+
+#header-acquisto h1 {
+  margin: 0;
+  font-size: 36px;
+}
+
+/* Contenitore Generale */
+.container {
+  width: 80%;
+  max-width: 1200px;
+  margin: 20px auto;
+}
+
+#sezione-selezione {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 40px;
+}
+
+#sezione-selezione h2 {
+  font-size: 24px;
+  color: #114e62; /* Colore del titolo, coerente con gli altri passaggi */
+  margin-bottom: 20px;
+}
+
+#sezione-selezione form {
+  margin-bottom: 20px;
+}
+
+#sezione-selezione label {
+  display: block;
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+#sezione-selezione input[type="radio"] {
+  margin-right: 10px;
+}
+
+#sezione-selezione button {
+  background-color: #114e62;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+#sezione-selezione button:hover {
+  background-color: #0d3e4d;
+}
+
+/* Sezioni */
+.sezione {
+  background-color: white;
+  padding: 20px;
+  margin-bottom: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  font-size: 28px;
+  color: #114e62;
+  margin-bottom: 15px;
+}
+
+p {
+  font-size: 18px;
+  color: #555;
+}
+
+label {
+  display: block;
+  margin: 10px 0 5px;
+  font-size: 16px;
+}
+
+input[type="text"], input[type="email"], input[type="radio"] {
+  width: 100%;
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+input[type="radio"] {
+  width: auto;
+  margin-right: 10px;
+}
+
+/* Bottoni */
+button {
+  background-color: #114e62;
+  color: white;
+  border: none;
+  padding: 15px 25px;
+  font-size: 18px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #093f50;
+}
+
+/* Sezione Riepilogo */
+#riepilogo-contenuto p {
+  font-size: 18px;
+}
+
+/* Footer */
+#footer-acquisto {
+  background-color: #114e62;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  font-size: 14px;
+}
+
+/* Media Queries per dispositivi mobili */
+@media (max-width: 768px) {
+  .container {
+      width: 90%;
+  }
+
+  h2 {
+      font-size: 24px;
+  }
+
+  p, label {
+      font-size: 16px;
+  }
+
+  button {
+      font-size: 16px;
+      padding: 12px 20px;
+  }
+}

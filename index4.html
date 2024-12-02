@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Isola Bella - Riserva Naturale della Sicilia</title>
+    <link rel="stylesheet" href="stile.css">
+    <script>document.addEventListener("DOMContentLoaded", function() {
+      const menuToggle = document.querySelector('.menu-toggle');
+      const nav = document.querySelector('header nav'); // Selezioniamo il menu di navigazione
+  
+      // Funzione per mostrare o nascondere il menu quando il bottone viene cliccato
+      menuToggle.addEventListener('click', function() {
+          nav.classList.toggle('active'); // Aggiungi/rimuovi la classe active per mostrare/nascondere il menu
+      });
+  });</script>
+</head>
+<body>
+
+
+  <header id="header_universale">
+    <!-- Logo a sinistra (visibile su desktop e mobile) -->
+    <div class="logo">
+      <img src="marchio.png" alt="Logo Isola Bella">
+    </div>
+  
+    <!-- Nome del sito (visibile su mobile) -->
+    <div class="site-name">
+      <a href="index.html" class="active"><strong>Isola Bella</strong></a>
+    </div>
+  
+    <!-- Menu di navigazione -->
+    <nav>
+      <a href="index2.html">Museo</a>
+      <a href="index3.html">Riserva</a>
+      <a href="index4.html" class="active">Escursioni</a>
+      <a href="index5.html">Info & Tariffe</a>
+    </nav>
+  
+    <!-- Bottone hamburger per il menu mobile -->
+    <button class="menu-toggle" aria-label="Apri menu">
+      &#9776; <!-- Icona hamburger -->
+    </button>
+</header>
+     
+<main>
+    <section id="hero-escursioni" class="hero-escursioni">
+        <div class="hero-content">
+            <!-- Titolo della Hero -->
+            <div class="hero-title">
+                <h1>Escursioni</h1>
+            </div>
+        </div>
+    </section>
+
+<section id="escursioni-isola-bella" class="escursioni-isola-bella">
+    <div class="escursioni-container">
+        <div class="escursioni-text">
+            <h2 class="escursioni-title">Isola Tours</h2>
+        </div>
+    </div>
+</section>
+
+<section id="percorsi-escursioni" class="escursioni-percorsi">
+    <div class="escursioni-container">
+        
+        <div class="percorsi-cards">
+            <div class="percorsi-card">
+                <img src="standard.jpg" alt="Percorso Standard" class="percorsi-img">
+                <h3 class="percorsi-card-title">Percorso Standard</h3>
+                <p class="percorsi-card-description">
+                    Un percorso semplice da fare in gruppo o singolarmente, della durata di circa due ore. Ti porterà a scoprire le bellezze cristalline dell'isola e il suo panorama mozzafiato.
+                </p>
+            </div>
+            <div class="percorsi-card">
+                <img src="completa.jpg" alt="Percorso Completo" class="percorsi-img">
+                <h3 class="percorsi-card-title">Percorso Completo</h3>
+                <p class="percorsi-card-description">
+                    Un percorso più impegnativo, esclusivamente per gruppi di 15 o 20 persone. Della durata di otto ore, è perfetto per gli amanti della natura, delle acque e della tranquillità.
+                </p>
+            </div>
+            <div class="percorsi-card">
+                <img src="skorkeling.jpg" alt="Snorkeling" class="percorsi-img">
+                <h3 class="percorsi-card-title">Snorkeling</h3>
+                <p class="percorsi-card-description">
+                    Immersione nelle acque cristalline dell'isola per esplorare i coralli. Il nostro istruttore vi guiderà alla scoperta delle meraviglie subacquee dell'Isola Bella.
+                </p>
+            </div>
+        </div>
+</section>
+
+<!-- Divisore per la pagina Escursioni -->
+<div class="divisore-escursioni"></div>
+
+<section id="concept-isola-bella" class="concept-isola-bella">
+    <div class="container">
+        <h2 class="section-title">La nostra idea</h2>
+        <p class="section-description">
+            Isola Bella non è solo una meta turistica, ma un’esperienza immersiva nella natura incontaminata. 
+            Ogni escursione è progettata per offrire un viaggio unico, che combina la bellezza del paesaggio con la 
+            scoperta delle tradizioni locali. 
+        </p>
+        <p class="section-description">
+            I nostri percorsi sono pensati per ogni tipo di escursionista: da chi cerca una passeggiata rilassante 
+            immersa nel verde, a chi è alla ricerca di un'avventura più impegnativa alla scoperta della flora e fauna 
+            dell'isola. Ogni attività è realizzata con il massimo rispetto per l’ambiente, per garantire un'esperienza 
+            autentica e sostenibile.
+        </p>
+    </div>
+</section>
+    
+ <section id="info-utili" class="escursioni-info-utili">
+  <div class="escursioni-container">
+    <h2 class="info-title">Informazioni Utili</h2>
+    <ul class="info-list">
+      <li><strong>Orari escursioni:</strong> dalle 08:30 alle 20:00</li>
+      <li><strong>Attrezzatura consigliata:</strong> crema solare, acqua, pranzo a sacco e una buona dose di energia.</li>
+      <li><strong>Per ulteriori informazioni contattare:</strong> <a href="mailto:isolabella.escursioni@gmail.it" class="email-link">isolabella.escursioni@gmail.it</a></li>
+      <li><strong>Cellulare:</strong> +39 3456789023</li>
+      <li><strong>Guide disponibili su prenotazione.</strong></li>
+    </ul>
+  </div>
+</section>
+
+</main>
+   
+<footer class="footer">
+    <div class="container">
+        <!-- Sezione Info sull'Isola Bella -->
+        <div class="footer-info">
+            <img src="bandiera blu.jpg" alt="Logo del sito" class="footer-logo">
+          </div>
+        
+        <!-- Sezione Links -->
+        <div class="footer-links">
+            <h4>Link utili</h4>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index5.html">Contatti</a></li>
+                <li><a href="index7.html">Fauna</a></li>
+                <li><a href="index6.html">Flora</a></li>
+                <li><a href="index8.html">Emergenze Floristiche</a></li>
+                <li><a href="index14.html">Acquista i biglietti</a></li>
+            </ul>
+        </div>
+
+        <!-- Sezione Contatti -->
+        <div class="footer-contact">
+            <h4>Contattaci</h4>
+            <p><a href="mailto:info@isolabella.com">info@isolabella.com</a></p>
+            <p>+39 0942 628738</p>
+            <p>Via Nazionale - Strada Statale 114, Isola Bella, Taormina, Italia</p>
+        </div>
+
+        
+    <!-- Sezione Bottom -->
+    <div class="footer-bottom">
+        <p>&copy; 2024 Isola Bella. Tutti i diritti riservati.</p>
+        <p><a href="index13.html">Privacy Policy</a> | <a href="index12.html">Termini e Condizioni</a></p>
+    </div>
+</footer>
+
+  
+</body>
+</html>

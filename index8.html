@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Isola Bella - Riserva Naturale della Sicilia</title>
+    <link rel="stylesheet" href="stile.css">
+</head>
+<body>
+   
+    <header id="header_universale">
+        <!-- Logo a sinistra (visibile su desktop e mobile) -->
+        <div class="logo">
+          <img src="marchio.png" alt="Logo Isola Bella">
+        </div>
+      
+        <!-- Nome del sito (visibile su mobile) -->
+        <div class="site-name">
+          <a href="index.html"><strong>Isola Bella</strong></a>
+        </div>
+      
+        <!-- Menu di navigazione -->
+        <nav>
+          <a href="index2.html">Museo</a>
+          <a href="index3.html">Riserva</a>
+          <a href="index4.html">Escursioni</a>
+          <a href="index5.html">Info & Tariffe</a>
+        </nav>
+      
+        <!-- Bottone hamburger per il menu mobile -->
+        <button class="menu-toggle" aria-label="Apri menu">
+          &#9776; <!-- Icona hamburger -->
+      </header>
+      
+      <script>
+      // Funzione per togglare il menu a tendina su mobile
+    const menuToggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('#header_universale nav'); // Sostituisci 'header_universale' con l'ID corretto
+    
+    menuToggle.addEventListener('click', function() {
+      nav.classList.toggle('active'); // Mostra o nasconde il menu
+    });
+</script>
+
+<main class="emergenze-floristiche">
+  <!-- Sezione Introduzione -->
+  <section id="introduzione-emergenze" class="introduzione-emergenze">
+      <div class="container">
+          <h2>Emergenze Floristiche</h2>
+          <div class="introduzione-contenuto">
+          <p>Le emergenze floristiche rappresentano un aspetto cruciale per la 
+            conservazione della biodiversità. Interventi tempestivi sono necessari 
+            per proteggere le piante e garantire la salute degli ecosistemi.</p>
+      </div>
+  </section>
+
+  <!-- Sezione Le Principali Emergenze -->
+  <section id="principali-emergenze" class="principali-emergenze">
+      <!-- Divisore -->
+  <div class="divider"></div>
+      <div class="container">
+          <h2>Le Principali Emergenze Floristiche</h2>
+          
+          <!-- Malattie delle Piante -->
+          <div class="emergenza-item">
+              <div class="emergenza-contenuto">
+                  <h3>Malattie delle Piante</h3>
+                  <p>Le malattie fungine e batteriche sono tra le principali minacce per la flora. È fondamentale intervenire rapidamente per evitare la diffusione e il danno irreversibile alle piante.</p>
+              </div>
+              <img src="parassiti.png" alt="Malattie delle Piante" class="emergenza-immagine">
+          </div>
+
+          <!-- Specie Invasive -->
+          <div class="emergenza-item">
+              <div class="emergenza-contenuto">
+                  <h3>Specie Invasive</h3>
+                  <p>Le specie invasive competono per le risorse naturali e minacciano la flora autoctona. Il controllo di queste specie è essenziale per il mantenimento della biodiversità.</p>
+              </div>
+              <img src="rami rotti.png" alt="Specie Invasive" class="emergenza-immagine">
+          </div>
+
+          <!-- Degrado Ambientale -->
+          <div class="emergenza-item">
+              <div class="emergenza-contenuto">
+                  <h3>Degrado Ambientale</h3>
+                  <p>Il degrado causato da attività antropiche, come l'inquinamento e la deforestazione, danneggia la flora locale. È necessario un ripristino ecologico per preservare gli habitat naturali.</p>
+              </div>
+              <img src="ripristilo.png" alt="Degrado Ambientale" class="emergenza-immagine">
+          </div>
+      </div>
+  </section>
+
+  <section class="navigazione-flora-fauna">
+    <div class="contenuto-navigazione">
+        <a href="index7.html" class="collegamento">
+            <span class="icon">🐢</span> Vai alla Fauna
+        </a>
+        <a href="index6.html" class="collegamento">
+            <span class="icon">🌱</span> Vai alla Flora
+        </a>
+    </div>
+
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <!-- Sezione Info sull'Isola Bella -->
+        <div class="footer-info">
+            <img src="bandiera blu.jpg" alt="Logo del sito" class="footer-logo">
+          </div>
+        
+        <!-- Sezione Links -->
+        <div class="footer-links">
+            <h4>Link utili</h4>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index5.html">Contatti</a></li>
+                <li><a href="index7.html">Fauna</a></li>
+                <li><a href="index6.html">Flora</a></li>
+                <li><a href="index8.html">Emergenze Floristiche</a></li>
+                <li><a href="index14.html">Acquista i biglietti</a></li>
+            </ul>
+        </div>
+
+        <!-- Sezione Contatti -->
+        <div class="footer-contact">
+            <h4>Contattaci</h4>
+            <p><a href="mailto:info@isolabella.com">info@isolabella.com</a></p>
+            <p>+39 0942 628738</p>
+            <p>Via Nazionale - Strada Statale 114, Isola Bella, Taormina, Italia</p>
+        </div>
+
+        
+    <!-- Sezione Bottom -->
+    <div class="footer-bottom">
+        <p>&copy; 2024 Isola Bella. Tutti i diritti riservati.</p>
+        <p><a href="index13.html">Privacy Policy</a> | <a href="index12.html">Termini e Condizioni</a></p>
+    </div>
+</footer>
+
+  
+</body>
+</html>

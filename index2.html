@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Isola Bella - Riserva Naturale della Sicilia</title>
+    <link rel="stylesheet" href="stile.css">
+    <script>document.addEventListener("DOMContentLoaded", function() {
+      const menuToggle = document.querySelector('.menu-toggle');
+      const nav = document.querySelector('header nav'); // Selezioniamo il menu di navigazione
+  
+      // Funzione per mostrare o nascondere il menu quando il bottone viene cliccato
+      menuToggle.addEventListener('click', function() {
+          nav.classList.toggle('active'); // Aggiungi/rimuovi la classe active per mostrare/nascondere il menu
+      });
+  });</script>
+</head>
+<body>
+
+
+  <header id="header_universale">
+    <!-- Logo a sinistra (visibile su desktop e mobile) -->
+    <div class="logo">
+      <img src="marchio.png" alt="Logo Isola Bella">
+    </div>
+  
+    <!-- Nome del sito (visibile su mobile) -->
+    <div class="site-name">
+      <a href="index.html" class="active"><strong>Isola Bella</strong></a>
+    </div>
+  
+    <!-- Menu di navigazione -->
+    <nav>
+      <a href="index2.html" class="active">Museo</a>
+      <a href="index3.html">Riserva</a>
+      <a href="index4.html">Escursioni</a>
+      <a href="index5.html">Info & Tariffe</a>
+    </nav>
+  
+    <!-- Bottone hamburger per il menu mobile -->
+    <button class="menu-toggle" aria-label="Apri menu">
+      &#9776; <!-- Icona hamburger -->
+    </button>
+</header>
+
+  
+
+    <main class="pagina-storica">
+
+      <section id="hero-museo" class="hero-museo">
+        <div class="hero-content">
+            <!-- Titolo della Hero -->
+            <div class="hero-title">
+                <h1>Museo Naturalistico</h1>
+        </div>
+    </section>
+
+     <section id="isola-bella-sezione" class="isola-bella-sezione">
+          <div class="isola-bella-container">
+            <div class="isola-bella-layout">
+              <!-- Colonna del testo -->
+              <section id="perla-del-mediterraneo" class="isola-bella-text-column">
+                <h2 class="isola-bella-title">Chi siamo?</h2>
+                <p>
+                  Il <strong>Museo naturalistico di Isola Bella</strong> è un'importante istituzione culturale che racconta la storia, la cultura e la biodiversità unica di questa meravigliosa isola siciliana. Situato all'interno della Riserva Naturale di Isola Bella, il museo offre un'esperienza coinvolgente che permette ai visitatori di esplorare il patrimonio naturale e storico di uno dei luoghi più iconici del Mediterraneo.
+                </p>
+                <p>
+                  Il museo ospita una vasta collezione di reperti naturalistici, storici e artistici, che spaziano dalla fauna locale alle testimonianze storiche legate all’isola e alla zona circostante. Ogni sala racconta una parte della storia della Sicilia, con particolare attenzione alla flora, alla fauna e alla geologia della regione. I visitatori possono immergersi in un'esperienza educativa e culturale che unisce la scienza, la storia e l'arte in un unico percorso.
+                </p>
+                <p>
+                  Il Museo Civico è aperto a tutti, dai curiosi appassionati di natura e storia, alle famiglie e alle scuole. Grazie alle sue esposizioni interattive e didattiche, il museo rappresenta una meta ideale per chi vuole conoscere più a fondo le bellezze naturali e storiche della Sicilia.
+                </p>
+          </section>
+ 
+   
+        <!-- Griglia di Immagini -->
+        <div class="isola-bella-image-grid">
+          <div class="isola-bella-image-item" data-aos="fade-up">
+            <img src="img museo 1.jpg" alt="Fauna dell'Isola Bella" class="isola-bella-image" onclick="openImage(this)">
+          </div>
+        
+          <div class="isola-bella-image-item" data-aos="fade-up" data-aos-delay="100">
+            <img src="img museo 2 copia.JPG" alt="Flora dell'Isola Bella" class="isola-bella-image" onclick="openImage(this)">
+          </div>
+        
+          <div class="isola-bella-image-item" data-aos="fade-up" data-aos-delay="200">
+            <img src="img museo 3.jpg" alt="Vista dell'Isola Bella" class="isola-bella-image" onclick="openImage(this)" width="100%">
+          </div>
+        </div>
+      </div>
+<!-- Lightbox per ingrandimento immagine -->
+<div id="isola-bella-lightbox" class="isola-bella-lightbox" onclick="closeImage()">
+  <img id="isola-bella-lightbox-image" src="" alt="Immagine ingrandita">
+</div>
+
+<!-- AOS Animations Library -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+<script>
+  AOS.init({
+    duration: 1000,
+    offset: 200,
+    once: true,
+  });
+
+  function openImage(imgElement) {
+    const lightbox = document.getElementById("isola-bella-lightbox");
+    const lightboxImage = document.getElementById("isola-bella-lightbox-image");
+    lightbox.style.display = "flex";
+    lightboxImage.src = imgElement.src;
+  }
+
+  function closeImage() {
+    const lightbox = document.getElementById("isola-bella-lightbox");
+    lightbox.style.display = "none";
+  }
+</script>
+</section>
+
+
+<section>
+  <!-- Divisore Arancione -->
+<div class="divisore-arancio"></div>
+ </section>
+
+
+<section id="museo-storia" class="museo-storia">
+<div class="contenitore-storia">
+<h2 class="titolo-storia">Un Viaggio attraverso la Storia del Museo</h2>
+
+<section>
+  <!-- Divisore Arancione -->
+<div class="divisore-arancio"></div>
+ </section>
+          
+<div class="timeline">
+  <!-- Anno 1890 -->
+  <div class="evento-storico" data-aos="fade-up">
+  <div class="anno">1890</div>
+      <div class="contenuto">
+        <div class="testo">
+          <h3>Un Inizio Storico</h3>
+          <p>L'isola viene acquistata dalla nobildonna inglese Florence Trevelyan, che trasforma il luogo in una meraviglia naturale.</p>
+          </div>
+          <div class="immagine">
+          <img src="img anno.jpg" alt="Immagine dell'anno 1890">
+</div>
+</div>
+</div>
+
+<section>
+  <!-- Divisore Arancione -->
+<div class="divisore-arancio"></div>
+ </section>
+          
+<!-- Anno 1954 -->
+<div class="evento-storico" data-aos="fade-up" data-aos-delay="100">
+<div class="anno">1954</div>
+<div class="contenuto">
+<div class="testo">
+<h3>Una Nuova Era</h3>
+<p>Nel 1954, l'isola viene acquistata dalla famiglia Bosurgi e un nuovo capitolo della storia inizia.</p>
+</div>
+<div class="immagine">
+<img src="img anno 2.jpg" alt="Immagine dell'anno 1954">
+</div>
+</div>
+</div>
+
+<section>
+  <!-- Divisore Arancione -->
+<div class="divisore-arancio"></div>
+ </section>
+          
+<!-- Anno 1982 -->
+<div class="evento-storico" data-aos="fade-up" data-aos-delay="200">
+<div class="anno">1982</div>
+<div class="contenuto">
+<div class="testo">
+<h3>Momento di Cambiamento</h3>
+<p>Il Museo attraversa un periodo di crisi, ma la sua bellezza e la sua storia rimangono intatte.</p>
+</div>
+<div class="immagine">
+<img src="img anno 3.jpg" alt="Immagine dell'anno 1982">
+</div>
+</div>
+</div>
+
+<section>
+  <!-- Divisore Arancione -->
+<div class="divisore-arancio"></div>
+ </section>
+          
+<!-- Anno 1984 -->
+ <div class="evento-storico" data-aos="fade-up" data-aos-delay="300">
+<div class="anno">1984</div>
+<div class="contenuto">
+<div class="testo">
+<h3>Un Nuovo Inizio</h3>
+<p>Nel 1984, il Museo viene restaurato e dichiarato patrimonio storico. Una nuova vita per il luogo.</p>
+</div>
+<div class="immagine">
+<img src="img anno 4.jpg" alt="Immagine dell'anno 1984">
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+          
+<!-- AOS Animations Library -->
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+  duration: 1000,
+  offset: 200,
+  once: true,
+ });
+ </script>
+
+
+<!-- Divisore Azzurro tra le sezioni -->
+<div class="divisore-azzurro"></div>
+
+<section id="acquisto-biglietti" class="sezione-biglietti">
+  <div class="contenitore-biglietti">
+      <h2 class="titolo-biglietti">Acquista i tuoi biglietti</h2>
+      <p class="descrizione-biglietti">Scegli la modalità di biglietto che fa per te e procedi all'acquisto per visitare il nostro museo.</p>
+
+      <div class="opzioni-biglietti">
+          <!-- Biglietto Adulti -->
+          <div class="biglietto opzione-biglietto">
+              <h3>Biglietto Adulti</h3>
+              <p class="prezzo">€5</p>
+              <p class="descrizione">Per visitatori di età superiore ai 18 anni.</p>
+              <a href="index9.html" class="bottone-biglietto">Acquista</a>
+          </div>
+
+          <!-- Biglietto Ridotto -->
+          <div class="biglietto opzione-biglietto">
+              <h3>Biglietto Ridotto</h3>
+              <p class="prezzo">€2,50</p>
+              <p class="descrizione">Per anziani e bambini.</p>
+              <a href="index10.html" class="bottone-biglietto">Acquista</a>
+          </div>
+
+          <!-- Biglietto Studente -->
+          <div class="biglietto opzione-biglietto">
+              <h3>Biglietto Studente</h3>
+              <p class="prezzo">€2,50</p>
+              <p class="descrizione">Per studenti universitari con tessera valida.</p>
+              <a href="index11.html" class="bottone-biglietto">Acquista</a>
+          </div>
+      </div>
+  </div>
+</section>
+
+<section id="informazioni-utili" class="informazioni-utili">
+  <div class="contenitore-informazioni">
+      <h3>Informazioni Utili</h3>
+      <p><strong>Email:</strong> <a href="mailto:isolabella.museo@gmail.it">isolabella.museo@gmail.it</a></p>
+      <p><strong>Telefono:</strong> 0957952356</p>
+      <p><strong>Cellulare:</strong> +39 3485672329</p>
+      <p><strong>Indirizzo:</strong> Via Nazionale, Isola Bella, 98039 Taormina (ME), Italia</p>
+  </div>
+</section>
+
+
+</main>
+
+
+<footer class="footer">
+  <div class="container">
+      <!-- Sezione Info sull'Isola Bella -->
+      <div class="footer-info">
+          <img src="bandiera blu.jpg" alt="Logo del sito" class="footer-logo">
+        </div>
+      
+      <!-- Sezione Links -->
+      <div class="footer-links">
+          <h4>Link utili</h4>
+          <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="index5.html">Contatti</a></li>
+              <li><a href="index7.html">Fauna</a></li>
+              <li><a href="index6.html">Flora</a></li>
+              <li><a href="index8.html">Emergenze Floristiche</a></li>
+              <li><a href="index14.html">Acquista i biglietti</a></li>
+          </ul>
+      </div>
+
+      <!-- Sezione Contatti -->
+      <div class="footer-contact">
+          <h4>Contattaci</h4>
+          <p><a href="mailto:info@isolabella.com">info@isolabella.com</a></p>
+          <p>+39 0942 628738</p>
+          <p>Via Nazionale - Strada Statale 114, Isola Bella, Taormina, Italia</p>
+      </div>
+
+      
+  <!-- Sezione Bottom -->
+  <div class="footer-bottom">
+      <p>&copy; 2024 Isola Bella. Tutti i diritti riservati.</p>
+      <p><a href="index13.html">Privacy Policy</a> | <a href="index12.html">Termini e Condizioni</a></p>
+  </div>
+</footer>
+
+
+</body>
+</html>

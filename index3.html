@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Isola Bella - Riserva Naturale della Sicilia</title>
+    <link rel="stylesheet" href="stile.css">
+    <script>document.addEventListener("DOMContentLoaded", function() {
+      const menuToggle = document.querySelector('.menu-toggle');
+      const nav = document.querySelector('header nav'); // Selezioniamo il menu di navigazione
+  
+      // Funzione per mostrare o nascondere il menu quando il bottone viene cliccato
+      menuToggle.addEventListener('click', function() {
+          nav.classList.toggle('active'); // Aggiungi/rimuovi la classe active per mostrare/nascondere il menu
+      });
+  });</script>
+</head>
+<body>
+
+
+  <header id="header_universale">
+    <!-- Logo a sinistra (visibile su desktop e mobile) -->
+    <div class="logo">
+      <img src="marchio.png" alt="Logo Isola Bella">
+    </div>
+  
+    <!-- Nome del sito (visibile su mobile) -->
+    <div class="site-name">
+      <a href="index.html" class="active"><strong>Isola Bella</strong></a>
+    </div>
+  
+    <!-- Menu di navigazione -->
+    <nav>
+      <a href="index2.html">Museo</a>
+      <a href="index3.html" class="active">Riserva</a>
+      <a href="index4.html">Escursioni</a>
+      <a href="index5.html">Info & Tariffe</a>
+    </nav>
+  
+    <!-- Bottone hamburger per il menu mobile -->
+    <button class="menu-toggle" aria-label="Apri menu">
+      &#9776; <!-- Icona hamburger -->
+    </button>
+</header>
+
+
+<main>
+
+    <section id="hero-riserva" class="hero-riserva">
+        <div class="hero-image">
+            <img src="copertina riserva.jpg" alt="Riserva Isola Bella" />
+        </div>
+    </section>
+
+<section id="riserva-sezione" class="riserva-sezione">
+    <div class="riserva-container">
+      <div class="riserva-layout">
+        <!-- Colonna del testo -->
+        <section id="riserva-paradiso-del-mediterraneo" class="riserva-text-column">
+            <h2 class="riserva-title">La Riserva</h2>
+            <p>La Riserva Naturale Orientata Isola Bella è una delle perle naturalistiche della Sicilia. 
+            Situata lungo la costa orientale dell’isola, questa riserva è stata istituita per proteggere la flora e la fauna uniche di questa zona. 
+            Con il suo paesaggio mozzafiato, che include l'isola omonima e la baia circostante, la riserva è diventata 
+            un luogo simbolo per la conservazione 
+            della biodiversità mediterranea.</p>
+            
+            <p>L’isola è collegata alla terraferma da una lingua di sabbia bianchissima, 
+                che durante l’alta marea è coperta dall’acqua fino all’altezza delle ginocchia. 
+                Già solo raggiungerla si rivelerà un’avventura emozionante! Potrete anche fare 
+                il bagno sul lato della terraferma, dove molti si fermano ad ammirare il panorama 
+                e le acque cristalline, che splendono al sole come una distesa di diamanti: davvero 
+                incredibili! Un viaggio in questa zona non potrà fare altro che riempirvi d’incanto. 
+                Dalle bellezze storiche di Taormina alle belle spiagge siciliane, per arrivare al 
+                tesoro dell’Isola Bella, non potrete fare altro che restare a bocca aperta e lasciarvi 
+                ammaliare dalle coste della Sicilia più amata.</p>
+        </section>
+      </div>
+    </div>
+  </section>
+
+  <div class="divisore-riserva"></div>
+
+  <section id="galleria-foto" class="escursioni-galleria">
+    <div class="escursioni-container">
+        <h2>Galleria</h2>
+        <div class="galleria">
+            <div class="galleria-item">
+                <img src="img riserva.jpg" alt="Isola Bella" class="galleria-immagine" id="img1">
+            </div>
+            <div class="galleria-item">
+                <img src="img riserva2.jpg" alt="Isola Bella" class="galleria-immagine" id="img2">
+            </div>
+            <div class="galleria-item">
+                <img src="img riserva3.jpg" alt="Isola Bella" class="galleria-immagine" id="img3">
+            </div>
+            <div class="galleria-item">
+                <img src="img riserva4.jpg" alt="Isola Bella" class="galleria-immagine" id="img4">
+            </div>
+            <div class="galleria-item">
+                <img src="img riserva6.jpg" alt="Isola Bella" class="galleria-immagine" id="img6">
+            </div>
+            <div class="galleria-item">
+                <img src="img riserva7.jpg" alt="Isola Bella" class="galleria-immagine" id="img7">
+            </div>
+            <div class="galleria-item">
+                <img src="img riserva8.jpeg" alt="Isola Bella" class="galleria-immagine" id="img8">
+            </div>
+            <div class="galleria-item">
+                <img src="img riserva9.jpg" alt="Isola Bella" class="galleria-immagine" id="img9">
+            </div>
+        </div>
+    </div>
+
+    <!-- Finestra per l'immagine ingrandita -->
+    <div id="modal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modal-img">
+    </div>
+</section>
+
+<script>
+    // Apertura dell'immagine ingrandita al clic
+const images = document.querySelectorAll('.galleria-immagine');
+const modal = document.getElementById('modal');
+const modalImg = document.getElementById('modal-img');
+
+images.forEach(image => {
+    image.addEventListener('click', function() {
+        modal.style.display = 'flex';  // Mostra la finestra modale
+        modalImg.src = this.src; // Imposta l'immagine ingrandita
+    });
+});
+
+// Funzione per chiudere la finestra modale
+function closeModal() {
+    modal.style.display = 'none';  // Nasconde la finestra modale
+}
+</script>
+
+<!-- Divisore verde -->
+<div class="divisore-verde"></div>
+
+
+<section id="biodiversita-card" class="biodiversita-card">
+    <div class="container">
+        <h2 class="titolo-biodiversita">Biodiversità</h2>
+        <h3 class="sottotitolo-biodiversita">Da Capo San't Andrea a Capo Taormina</h3>
+        <p class="descrizione-biodiversita">
+            Le nostre zone sono un punto ideale per osservare la flora e la fauna locali. La costa frastagliata e le piccole baie nascoste creano un ambiente perfetto per gli amanti della natura e della tranquillità.
+        </p>
+    </div>
+</section>
+
+<section id="biodiversita-cards">
+    <div class="container">
+        <div class="biodiversita-cards">
+            <!-- Card Flora -->
+            <a href="index6.html" class="card">
+                <img src="icona flora.jpeg" alt="Flora dell'Isola Bella" class="card-img">
+                <div class="card-content">
+                    <h3>Flora</h3>
+                </div>
+            </a>
+    
+            <!-- Card Fauna -->
+            <a href="index7.html" class="card">
+                <img src="icona fauna.jpeg" alt="Fauna dell'Isola Bella" class="card-img">
+                <div class="card-content">
+                    <h3>Fauna</h3>
+                </div>
+            </a>
+    
+            <!-- Card Emergenze Floristiche -->
+            <a href="index8.html" class="card">
+                <img src="icona emergenze floristiche.jpeg" alt="Emergenze Floristiche" class="card-img">
+                <div class="card-content">
+                    <h3>Emergenze Floristiche</h3>
+                </div>
+            </a>
+        </div>
+    </div>
+</section>
+
+</main>
+
+                
+
+
+<footer class="footer">
+    <div class="container">
+        <!-- Sezione Info sull'Isola Bella -->
+        <div class="footer-info">
+            <img src="bandiera blu.jpg" alt="Logo del sito" class="footer-logo">
+          </div>
+        
+        <!-- Sezione Links -->
+        <div class="footer-links">
+            <h4>Link utili</h4>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index5.html">Contatti</a></li>
+                <li><a href="index7.html">Fauna</a></li>
+                <li><a href="index6.html">Flora</a></li>
+                <li><a href="index8.html">Emergenze Floristiche</a></li>
+                <li><a href="index14.html">Acquista i biglietti</a></li>
+            </ul>
+        </div>
+
+        <!-- Sezione Contatti -->
+        <div class="footer-contact">
+            <h4>Contattaci</h4>
+            <p><a href="mailto:info@isolabella.com">info@isolabella.com</a></p>
+            <p>+39 0942 628738</p>
+            <p>Via Nazionale - Strada Statale 114, Isola Bella, Taormina, Italia</p>
+        </div>
+
+        
+    <!-- Sezione Bottom -->
+    <div class="footer-bottom">
+        <p>&copy; 2024 Isola Bella. Tutti i diritti riservati.</p>
+        <p><a href="index13.html">Privacy Policy</a> | <a href="index12.html">Termini e Condizioni</a></p>
+    </div>
+</footer>
+
+  
+</body>
+</html>
